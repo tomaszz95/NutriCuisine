@@ -1,43 +1,39 @@
 *,
 *::after,
 *::before {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-	font-size: 62.5%;
-	scroll-behavior: smooth;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
-	min-height: 100vh;
-	position: relative;
-	font-family: 'Montserrat', sans-serif;
-	background-color: var(--primary);
-	color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--primary);
+  color: var(--text);
 }
 
 button {
-	font: inherit;
-	border: none;
-	cursor: pointer;
+  font: inherit;
+  border: none;
+  cursor: pointer;
 }
 
 input,
 label {
-	font: inherit;
+  font: inherit;
 }
 
 :root {
-	--primary--dark: rgb(9, 5, 5);
-	--element--dark: rgb(65, 58, 58);
-	--darker--dark: rgb(20, 20, 20);
-	--text--dark: rgb(241, 236, 236);
-	--greylish--dark: rgb(180, 176, 176);
-	--highlight--dark: rgb(51, 202, 14);
-	--alert--dark: rgb(255, 1, 1);
-	--check--dark: rgb(59, 253, 11);
-	--edit--dark: rgb(4, 216, 254);
+  --primary: rgb(241, 236, 236);
+  --secondary: rgb(0, 0, 0);
+  --special: rgb(51, 202, 14);
+  --greylish: rgb(134, 133, 134);
+  --alert: rgb(255, 1, 1);
 }

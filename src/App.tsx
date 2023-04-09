@@ -31,15 +31,17 @@ const router = createBrowserRouter([
         path: 'ingredients',
         element: <IngredientsPage />,
       },
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-      {
-        path: 'signup',
-        element: <SingupPage />,
-      },
     ],
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/signup',
+    element: <SingupPage />,
+    errorElement: <ErrorPage />,
   },
 ])
 
