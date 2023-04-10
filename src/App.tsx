@@ -20,16 +20,16 @@ const router = createBrowserRouter([
         element: <MenuPage />,
       },
       {
+        path: 'ingredients',
+        element: <IngredientsPage />,
+      },
+      {
         path: 'favorites',
         element: <FavoritesPage />,
       },
       {
         path: 'shopping_list',
         element: <ShoppingListPage />,
-      },
-      {
-        path: 'ingredients',
-        element: <IngredientsPage />,
       },
     ],
   },

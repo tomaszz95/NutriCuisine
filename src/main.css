@@ -33,7 +33,12 @@ label {
 :root {
   --primary: rgb(241, 236, 236);
   --secondary: rgb(0, 0, 0);
-  --special: rgb(51, 202, 14);
-  --greylish: rgb(134, 133, 134);
-  --alert: rgb(255, 1, 1);
+  --special: rgb(51, 218, 9);
+  --menu: rgb(16, 83, 0);
+  --greylish: rgb(129, 126, 129);
+  --alert: rgb(208, 4, 4);
+}
+
+.active {
+  color: var(--alert) !important;
 }

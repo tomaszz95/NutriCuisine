@@ -3,6 +3,7 @@ import styles from './Input.module.css'
 
 const Input = ({ inputPage }: { inputPage: string }) => {
   const [placeholderText, setPlaceholderText] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const submitInput = (e: React.SyntheticEvent) => {
@@ -11,6 +12,9 @@ const Input = ({ inputPage }: { inputPage: string }) => {
     if (inputRef.current && inputRef.current.value.trim() !== '') {
       console.log(inputRef.current.value)
       inputRef.current.value = ''
+      setError(false)
+    } else {
+      setError(true)
     }
   }
 
@@ -34,15 +38,16 @@ const Input = ({ inputPage }: { inputPage: string }) => {
   }, [inputPage])
 
   return (
-    <form onSubmit={submitInput}>
+    <form onSubmit={submitInput} className={styles.form}>
       <input
         className={styles.input}
         placeholder={placeholderText}
         ref={inputRef}
         type="text"
-        required
       />
-      <p className={styles.error}>There is no ingredient with that name!</p>
+      {error && (
+        <p className={styles.error}>There is no ingredient with that name!</p>
+      )}
     </form>
   )
 }

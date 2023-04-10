@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
-import Input from './Input'
-
+import Input from '../UI/Input'
+import FooterLayout from './FooterLayout'
+import HeaderLayout from './HeaderLayout'
 import styles from './RootLayout.module.css'
 
 const RootLayout = () => {
@@ -11,26 +12,25 @@ const RootLayout = () => {
   const location = useLocation()
 
   useEffect(() => {
-    const title = location.pathname.slice(1).replace('_', ' ')
+    let title = location.pathname.slice(1).replace('_', ' ')
+    if (title === '') {
+      title = 'menu'
+    }
     setUrlParam(title)
   }, [location.pathname])
 
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.shadow} />
-        <div className={styles.container}>
-          <i className={`fa-solid fa-scroll ${styles.logo}`}></i>
-          <h1 className={styles.title}>{urlParam}</h1>
-          <button className={styles.button} aria-label="Click to login">
-            <i className={`fa-solid fa-circle-user ${styles.icon}`} />
-          </button>
-        </div>
+        <HeaderLayout inputPage={urlParam} />
         <Input inputPage={urlParam} />
       </header>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
+      <footer className={styles.footer}>
+        <FooterLayout />
+      </footer>
     </>
   )
 }
