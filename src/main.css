@@ -38,7 +38,3 @@ label {
   --greylish: rgb(129, 126, 129);
   --alert: rgb(208, 4, 4);
 }
-
-.active {
-  color: var(--alert) !important;
-}

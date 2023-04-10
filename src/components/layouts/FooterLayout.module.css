@@ -22,6 +22,10 @@
   color: rgb(69, 170, 82);
 }
 
+.nav a.active {
+  color: var(--alert);
+}
+
 .nav i {
   font-size: 2rem;
 }
