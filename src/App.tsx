@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import RootLayout from './components/layouts/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
 import MenuPage from './components/pages/MenuPage'

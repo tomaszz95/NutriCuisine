@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+
 import recipies from './recipe-slice'
 import favorite from './favorite-slice'
 

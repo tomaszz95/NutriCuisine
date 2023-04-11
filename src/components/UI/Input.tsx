@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+
 import styles from './Input.module.css'
 
 const Input = ({ inputPage }: { inputPage: string }) => {
