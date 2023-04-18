@@ -1,0 +1,25 @@
+.container {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--alert);
+  margin-bottom: 0.5em;
+}
+
+.message {
+  font-size: 1.6rem;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+
+.messageInfo {
+  margin-top: 1em;
+  font-size: 1.8rem;
+  font-weight: bold;
+}

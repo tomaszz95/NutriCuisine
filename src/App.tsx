@@ -1,43 +1,31 @@
-import { createBrowserRouter, json, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import RootLayout from './components/layouts/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
-import MenuPage from './components/pages/MenuPage'
+import RecipesPage from './components/pages/RecipesPage'
+import CaloriesPage from './components/pages/CaloriesPage'
 import FavoritesPage from './components/pages/FavoritesPage'
 import ShoppingListPage from './components/pages/ShoppingListPage'
-import IngredientsPage from './components/pages/IngredientsPage'
 import LoginPage from './components/pages/LoginPage'
 import SingupPage from './components/pages/SingupPage'
-
-async function menuLoader() {
-  try {
-    const response = await fetch(
-      'https://api.edamam.com/api/recsipes/v2?type=public&app_id=b2183273&app_key=71420af87e9be9808a172563d6f54945&imageSize=REGULAR'
-    )
-
-    const resData = await response.json()
-    console.log(resData)
-    return resData
-  } catch {
-    throw json({ message: 'Could not fetch data.' }, { status: 500 })
-  }
-}
+import { recipesLoader, caloriesLoader } from './components/Helpers/loaders'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    loader: menuLoader,
     children: [
-      { index: true, element: <MenuPage /> },
+      { index: true, element: <RecipesPage /> },
       {
-        path: 'menu',
-        element: <MenuPage />,
+        path: 'recipes',
+        element: <RecipesPage />,
+        loader: recipesLoader,
       },
       {
-        path: 'ingredients',
-        element: <IngredientsPage />,
+        path: 'calories',
+        element: <CaloriesPage />,
+        loader: caloriesLoader,
       },
       {
         path: 'favorites',

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
-import Input from '../UI/Input'
-import FooterLayout from './FooterLayout'
+import MainForm from '../Form/MainForm'
+import FooterNavLayout from './FooterNavLayout'
 import HeaderLayout from './HeaderLayout'
 import styles from './RootLayout.module.css'
 
@@ -23,13 +23,13 @@ const RootLayout = () => {
     <>
       <header className={styles.header}>
         <HeaderLayout inputPage={urlParam} />
-        <Input inputPage={urlParam} />
+        <MainForm inputPage={urlParam} />
       </header>
       <main className={styles.main}>
         <Outlet />
       </main>
       <footer className={styles.footer}>
-        <FooterLayout />
+        <FooterNavLayout />
       </footer>
     </>
   )

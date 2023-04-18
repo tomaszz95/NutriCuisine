@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import styles from './Input.module.css'
+import styles from './MainForm.module.css'
 
-const Input = ({ inputPage }: { inputPage: string }) => {
+const MainForm = ({ inputPage }: { inputPage: string }) => {
   const [placeholderText, setPlaceholderText] = useState<string>('')
+  const [buttonText, setButtonText] = useState<string>('')
   const [error, setError] = useState<boolean>(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -21,20 +22,25 @@ const Input = ({ inputPage }: { inputPage: string }) => {
 
   useEffect(() => {
     switch (inputPage) {
-      case 'menu':
+      case 'recipes':
         setPlaceholderText('Search recipe...')
+        setButtonText('Search')
+        break
+      case 'calories':
+        setPlaceholderText('Check ingredient calories...')
+        setButtonText('Check')
         break
       case 'favorites':
         setPlaceholderText('Search favorite recipe...')
+        setButtonText('Search')
         break
       case 'shopping list':
-        setPlaceholderText('Search ingredient...')
-        break
-      case 'ingredients':
-        setPlaceholderText('Search ingredient...')
+        setPlaceholderText('Add product to list...')
+        setButtonText('Add')
         break
       default:
         setPlaceholderText('Search...')
+        setButtonText('Search')
     }
   }, [inputPage])
 
@@ -49,8 +55,11 @@ const Input = ({ inputPage }: { inputPage: string }) => {
       {error && (
         <p className={styles.error}>There is no ingredient with that name!</p>
       )}
+      <button aria-label="button" type="submit" className={styles.button}>
+        {buttonText}
+      </button>
     </form>
   )
 }
 
-export default Input
+export default MainForm

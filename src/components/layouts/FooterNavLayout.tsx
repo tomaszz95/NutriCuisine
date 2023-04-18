@@ -1,23 +1,23 @@
 import { NavLink } from 'react-router-dom'
 
-import styles from './FooterLayout.module.css'
+import styles from './FooterNavLayout.module.css'
 
-const FooterLayout = () => {
+const FooterNavLayout = () => {
   return (
     <nav className={styles.nav}>
       <NavLink
-        to="/menu"
+        to="/recipes"
         className={({ isActive }) => (isActive ? `${styles.active}` : '')}
       >
         <i className="fa-solid fa-utensils"></i>
-        <span>Menu</span>
+        <span>Recipes</span>
       </NavLink>
       <NavLink
-        to="/ingredients"
+        to="/calories"
         className={({ isActive }) => (isActive ? `${styles.active}` : '')}
       >
         <i className="fa-solid fa-carrot"></i>
-        <span>Ingredients</span>
+        <span>Calories</span>
       </NavLink>
       <NavLink
         to="/favorites"
@@ -37,4 +37,4 @@ const FooterLayout = () => {
   )
 }
 
-export default FooterLayout
+export default FooterNavLayout
