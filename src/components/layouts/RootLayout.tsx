@@ -5,18 +5,23 @@ import { useLocation } from 'react-router-dom'
 import MainForm from '../form/MainForm'
 import FooterNavLayout from './FooterNavLayout'
 import HeaderLayout from './HeaderLayout'
+import useUrlAddress from '../hooks/useUrlAddress'
 import styles from './RootLayout.module.css'
 
 type initialStateTypes = {
   titleText: string
   placeholderText: string
   buttonText: string
+  errorText: string
+  urlQuery: string
 }
 
 const initialState = {
   titleText: '',
   placeholderText: '',
   buttonText: '',
+  errorText: '',
+  urlQuery: '',
 }
 
 const RootLayout = () => {
@@ -24,53 +29,20 @@ const RootLayout = () => {
   const location = useLocation()
 
   useEffect(() => {
-    let title = location.pathname.slice(1)
-
-    switch (title) {
-      case 'recipes':
-        setFormData({
-          titleText: 'Recipes',
-          placeholderText: 'Search recipe...',
-          buttonText: 'Search',
-        })
-        break
-      case 'calories':
-        setFormData({
-          titleText: 'Calories',
-          placeholderText: 'Check ingredient calories...',
-          buttonText: 'Check',
-        })
-        break
-      case 'favorites':
-        setFormData({
-          titleText: 'Favorites',
-          placeholderText: 'Search favorite recipe...',
-          buttonText: 'Search',
-        })
-        break
-      case 'shopping_list':
-        setFormData({
-          titleText: 'Shopping List',
-          placeholderText: 'Add product to list...',
-          buttonText: 'Add',
-        })
-        break
-      default:
-        setFormData({
-          titleText: 'Recipes',
-          placeholderText: 'Search recipe...',
-          buttonText: 'Search',
-        })
-    }
+    let urlQuery = location.pathname.slice(1)
+    const formTextData = useUrlAddress(urlQuery)
+    setFormData({ urlQuery, ...formTextData })
   }, [location.pathname])
 
   return (
     <>
       <header className={styles.header}>
-        <HeaderLayout titleTxt={formData.titleText} />
+        <HeaderLayout titleText={formData.titleText} />
         <MainForm
-          placeholderTxt={formData.placeholderText}
-          buttonTxt={formData.buttonText}
+          placeholderText={formData.placeholderText}
+          buttonText={formData.buttonText}
+          errorText={formData.errorText}
+          urlQuery={formData.urlQuery}
         />
       </header>
       <main className={styles.main}>

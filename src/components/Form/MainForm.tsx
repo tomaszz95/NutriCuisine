@@ -1,36 +1,39 @@
 import { useRef, useState } from 'react'
-
-import useIngredient from '../hooks/useFoodApi'
+import { useDispatch } from 'react-redux'
+import { fetchRecipes, fetchIngredients } from '../../store/api-actions'
+import { ThunkDispatch } from '@reduxjs/toolkit'
 import styles from './MainForm.module.css'
 
 type MainFormType = {
-  placeholderTxt: string
-  buttonTxt: string
+  placeholderText: string
+  buttonText: string
+  errorText: string
+  urlQuery: string
 }
 
-const MainForm: React.FC<MainFormType> = ({ placeholderTxt, buttonTxt }) => {
+const MainForm: React.FC<MainFormType> = ({
+  placeholderText,
+  buttonText,
+  errorText,
+  urlQuery,
+}) => {
   const [error, setError] = useState<boolean>(false)
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const inputRef = useRef<HTMLInputElement>(null)
 
-  let errorText = 'There is no ingredient with that name!'
+  let errorParagraph = 'This field cannot be empty!'
 
-  const getData = async (ingr: string) => {
-    const ingrData = useIngredient(ingr)
-    return ingrData
-  }
-
-  const submitInput = async (e: React.SyntheticEvent) => {
+  const submitInput = (e: React.SyntheticEvent) => {
     e.preventDefault()
 
     if (inputRef.current && inputRef.current.value.trim() !== '') {
-      const fullData = await getData(inputRef.current.value)
-      console.log(fullData)
-
-      inputRef.current.value = ''
-      errorText = 'There is no ingredient with that name!'
-      setError(false)
+      urlQuery === 'recipes'
+        ? dispatch(fetchRecipes(inputRef.current.value))
+        : dispatch(fetchIngredients(inputRef.current.value))
     } else {
+      errorText = 'This field cannot be empty!'
       setError(true)
+      return
     }
   }
 
@@ -38,13 +41,13 @@ const MainForm: React.FC<MainFormType> = ({ placeholderTxt, buttonTxt }) => {
     <form onSubmit={submitInput} className={styles.form}>
       <input
         className={styles.input}
-        placeholder={placeholderTxt}
+        placeholder={placeholderText}
         ref={inputRef}
         type="text"
       />
-      {error && <p className={styles.error}>{errorText}</p>}
+      {error && <p className={styles.error}>{errorParagraph}</p>}
       <button aria-label="button" type="submit" className={styles.button}>
-        {buttonTxt}
+        {buttonText}
       </button>
     </form>
   )

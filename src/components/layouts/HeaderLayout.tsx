@@ -1,16 +1,16 @@
 import styles from './HeaderLayout.module.css'
 
 type HeaderLayoutType = {
-  titleTxt: string
+  titleText: string
 }
 
-const HeaderLayout: React.FC<HeaderLayoutType> = ({ titleTxt }) => {
+const HeaderLayout: React.FC<HeaderLayoutType> = ({ titleText }) => {
   return (
     <>
       <div className={styles.shadow} />
       <div className={styles.container}>
         <i className={`fa-solid fa-scroll ${styles.logo}`}></i>
-        <h1 className={styles.title}>{titleTxt}</h1>
+        <h1 className={styles.title}>{titleText}</h1>
         <button className={styles.button} aria-label="Click to login">
           <i className={`fa-solid fa-circle-user ${styles.icon}`} />
         </button>
