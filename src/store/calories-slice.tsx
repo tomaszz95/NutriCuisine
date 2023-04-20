@@ -11,7 +11,7 @@ const caloriesSlice = createSlice({
     fiber: '',
   },
   reducers: {
-    getIngredientByName(state: any, action: any) {
+    getIngredientByName(_, action) {
       return action.payload
     },
   },

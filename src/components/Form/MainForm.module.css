@@ -45,11 +45,19 @@
   background-color: rgb(31, 190, 26);
 }
 
+.button:disabled {
+  background-color: var(--greylish);
+}
+
 @media (min-width: 576px) {
   .input {
     width: 100%;
     max-width: 550px;
     padding: 0.8em 2.1em;
+    font-size: 1.6rem;
+  }
+
+  .button {
     font-size: 1.6rem;
   }
 
@@ -67,8 +75,18 @@
     font-size: 1.7rem;
   }
 
+  .button {
+    font-size: 1.7rem;
+  }
+
   .error {
     margin: 1em 0;
     font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .button {
+    font-size: 1.8rem;
   }
 }

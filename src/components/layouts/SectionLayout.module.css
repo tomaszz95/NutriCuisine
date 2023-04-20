@@ -1,0 +1,69 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1em;
+  text-align: center;
+}
+
+.title {
+  position: relative;
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+  color: var(--menu);
+  margin-bottom: 0.5em;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  display: block;
+  bottom: -15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 2px;
+  background-color: var(--menu);
+  transition: 0.3s;
+}
+
+.title:hover::after {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .section {
+    padding: 1.2em;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .title::after {
+    bottom: -20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 1.4em;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding: 1.6em;
+  }
+
+  .title {
+    font-size: 2.6rem;
+  }
+}

@@ -8,7 +8,7 @@ import FavoritesPage from './components/pages/FavoritesPage'
 import ShoppingListPage from './components/pages/ShoppingListPage'
 import LoginPage from './components/pages/LoginPage'
 import SingupPage from './components/pages/SingupPage'
-import { recipesLoader, caloriesLoader } from './components/helpers/loaders'
+import { recipesLoader } from './components/helpers/loaders'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +25,6 @@ const router = createBrowserRouter([
       {
         path: 'calories',
         element: <CaloriesPage />,
-        loader: caloriesLoader,
       },
       {
         path: 'favorites',
