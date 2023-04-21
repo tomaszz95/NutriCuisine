@@ -13,11 +13,11 @@ const FooterNavLayout = () => {
         <span>Recipes</span>
       </NavLink>
       <NavLink
-        to="/calories"
+        to="/products"
         className={({ isActive }) => (isActive ? `${styles.active}` : '')}
       >
         <i className="fa-solid fa-carrot"></i>
-        <span>Calories</span>
+        <span>Products</span>
       </NavLink>
       <NavLink
         to="/favorites"

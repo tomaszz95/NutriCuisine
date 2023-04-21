@@ -1,12 +1,7 @@
-type textObjectTypes = {
-  titleText: string
-  placeholderText: string
-  buttonText: string
-  errorText: string
-}
+import { TextObjectTypes } from '../helpers/types'
 
 const useUrlAddress = (address: string) => {
-  let textObject: textObjectTypes
+  let textObject: TextObjectTypes
 
   switch (address) {
     case 'recipes':
@@ -17,12 +12,12 @@ const useUrlAddress = (address: string) => {
         errorText: 'There is no recipe with this name!',
       }
       break
-    case 'calories':
+    case 'products':
       textObject = {
-        titleText: 'Calories',
-        placeholderText: 'Check ingredient calories...',
+        titleText: 'Products',
+        placeholderText: 'Check product nutritional values...',
         buttonText: 'Check',
-        errorText: 'There is no ingredient with this name!',
+        errorText: 'There is no products with this name!',
       }
       break
     case 'favorites':

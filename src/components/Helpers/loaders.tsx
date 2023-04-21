@@ -4,6 +4,10 @@ const RECIPESADDRESS = `https://api.edasmam.com/api/recipes/v2?type=public&app_i
   import.meta.env.VITE_RECIPEID
 }&app_key=${import.meta.env.VITE_RECIPEKEY}&diet=balanced&random=true`
 
+const PRODUCTSADDRESS = `https://api.edamam.com/api/food-database/v2/parser?app_id=${
+  import.meta.env.VITE_CALORIESID
+}&app_key=${import.meta.env.VITE_CALORIESKEY}&nutrition-type=cooking`
+
 export async function recipesLoader() {
   try {
     const response = await fetch(RECIPESADDRESS)
@@ -11,5 +15,16 @@ export async function recipesLoader() {
     return resData
   } catch {
     throw json({ message: 'Could not fetch recipes.' }, { status: 500 })
+  }
+}
+
+export async function productsLoader() {
+  try {
+    const response = await fetch(PRODUCTSADDRESS)
+
+    const resData = await response.json()
+    return resData
+  } catch {
+    throw json({ message: 'Could not fetch products.' }, { status: 500 })
   }
 }

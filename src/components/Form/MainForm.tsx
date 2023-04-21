@@ -1,15 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchRecipes, fetchIngredients } from '../../store/api-actions'
 import { ThunkDispatch } from '@reduxjs/toolkit'
-import styles from './MainForm.module.css'
 
-type MainFormType = {
-  placeholderText: string
-  buttonText: string
-  errorText: string
-  urlQuery: string
-}
+import { fetchRecipes, fetchProducts } from '../../store/api-actions'
+import { MainFormType } from '../helpers/types'
+import styles from './MainForm.module.css'
 
 const MainForm: React.FC<MainFormType> = ({
   placeholderText,
@@ -25,7 +20,7 @@ const MainForm: React.FC<MainFormType> = ({
   useEffect(() => {
     if (
       urlQuery === 'recipes' ||
-      urlQuery === 'calories' ||
+      urlQuery === 'products' ||
       urlQuery === 'favorites' ||
       urlQuery === 'shopping_list' ||
       urlQuery === ''
@@ -49,8 +44,8 @@ const MainForm: React.FC<MainFormType> = ({
           dispatch(fetchRecipes(inputRef.current.value))
           setError('')
           break
-        case 'calories':
-          dispatch(fetchIngredients(inputRef.current.value))
+        case 'products':
+          dispatch(fetchProducts(inputRef.current.value))
           setError('')
           break
         case 'favorites':

@@ -1,9 +1,5 @@
+import { SectionTitleType } from '../helpers/types'
 import styles from './SectionLayout.module.css'
-
-type SectionTitleType = {
-  title: string
-  children: React.ReactNode
-}
 
 const SectionTitle: React.FC<SectionTitleType> = ({ title, children }) => {
   return (

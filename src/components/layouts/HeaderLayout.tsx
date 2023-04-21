@@ -1,8 +1,5 @@
+import { HeaderLayoutType } from '../helpers/types'
 import styles from './HeaderLayout.module.css'
-
-type HeaderLayoutType = {
-  titleText: string
-}
 
 const HeaderLayout: React.FC<HeaderLayoutType> = ({ titleText }) => {
   return (

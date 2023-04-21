@@ -3,12 +3,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './components/layouts/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
 import RecipesPage from './components/pages/RecipesPage'
-import CaloriesPage from './components/pages/CaloriesPage'
+import ProductsPage from './components/pages/ProductsPage'
 import FavoritesPage from './components/pages/FavoritesPage'
 import ShoppingListPage from './components/pages/ShoppingListPage'
 import LoginPage from './components/pages/LoginPage'
 import SingupPage from './components/pages/SingupPage'
-import { recipesLoader } from './components/helpers/loaders'
+import { recipesLoader, productsLoader } from './components/helpers/loaders'
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,9 @@ const router = createBrowserRouter([
         loader: recipesLoader,
       },
       {
-        path: 'calories',
-        element: <CaloriesPage />,
+        path: 'products',
+        element: <ProductsPage />,
+        loader: productsLoader,
       },
       {
         path: 'favorites',

@@ -1,8 +1,8 @@
 import { recipesActions } from './recipes-slice'
-import { caloriesActions } from './calories-slice'
+import { productsActions } from './products-slice'
 import { json } from 'react-router-dom'
 
-export const fetchIngredients = (itemName: string) => {
+export const fetchProducts = (itemName: string) => {
   return async (dispatch: any) => {
     const fetchData = async () => {
       const response = await fetch(
@@ -19,19 +19,9 @@ export const fetchIngredients = (itemName: string) => {
 
     try {
       const cartData = await fetchData()
-      const importantData = cartData.hints.map((item: any) => {
-        return {
-          ingredient: item.food.label,
-          image: item.food.image,
-          carbohydrates: item.food.nutrients.CHOCDF,
-          fat: item.food.nutrients.FAT,
-          protein: item.food.nutrients.PROCNT,
-          fiber: item.food.nutrients.FIBTG,
-        }
-      })
-      dispatch(caloriesActions.getIngredientByName(importantData))
+      dispatch(productsActions.getProductByName(cartData))
     } catch (error) {
-      throw json({ message: 'Could not fetch ingredient.' }, { status: 500 })
+      throw json({ message: 'Could not fetch products.' }, { status: 500 })
     }
   }
 }

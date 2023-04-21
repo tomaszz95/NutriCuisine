@@ -13,7 +13,7 @@ const ErrorPage = () => {
     message = error.data.message
     message === 'Could not fetch recipes.'
       ? (messageInfo = 'Try to enter valid recipe name!')
-      : (messageInfo = 'Try to enter valid ingredient name!')
+      : (messageInfo = 'Try to enter valid product name!')
   }
 
   if (error.status === 404) {
