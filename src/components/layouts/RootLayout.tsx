@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 import MainForm from '../form/MainForm'
-import FooterNavLayout from './FooterNavLayout'
+import Navigation from '../navigation/Navigation'
 import HeaderLayout from './HeaderLayout'
 import useUrlAddress from '../hooks/useUrlAddress'
 import { InitialRootLayoutState } from '../helpers/initialStates'
@@ -36,7 +36,7 @@ const RootLayout = () => {
         <Outlet />
       </main>
       <footer className={styles.footer}>
-        <FooterNavLayout />
+        <Navigation />
       </footer>
     </>
   )

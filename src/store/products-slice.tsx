@@ -16,6 +16,7 @@ const productsSlice = createSlice({
           fat: item.food.nutrients.FAT,
           protein: item.food.nutrients.PROCNT,
           fiber: item.food.nutrients.FIBTG,
+          id: item.food.foodId,
         }
       })
       return fetchedData

@@ -35,10 +35,27 @@ export type InitialProductStateType = [
     fat: string
     protein: string
     fiber: string
+    id: string
   }
 ]
+
+export type SingleProductType = {
+  ingredient: string
+  image: string
+  carbohydrates: string
+  fat: string
+  protein: string
+  fiber: string
+  id: string
+}
 
 // PRODUCT ITEM
 export type ProductItemType = {
   productName: string
+  productImage: string
+  productCarbo: string
+  productFat: string
+  productProtein: string
+  productFiber: string
+  key: string
 }

@@ -3,12 +3,13 @@ import ProductsList from '../products/ProductsList'
 
 const ProductsPage = () => {
   return (
-    <div>
+    <>
       <SectionLayout title="Check the nutritional values of the product!">
-        sth
+        <ProductsList />
+        <ProductsList />
+        <ProductsList />
       </SectionLayout>
-      <ProductsList />
-    </div>
+    </>
   )
 }
 

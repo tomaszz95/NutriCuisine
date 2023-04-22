@@ -9,6 +9,7 @@ export const InitialProductState: InitialProductStateType = [
     fat: '',
     protein: '',
     fiber: '',
+    id: '',
   },
 ]
 

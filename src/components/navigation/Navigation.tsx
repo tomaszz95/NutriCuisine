@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom'
 
-import styles from './FooterNavLayout.module.css'
+import styles from './Navigation.module.css'
 
-const FooterNavLayout = () => {
+const Navigation = () => {
   return (
     <nav className={styles.nav}>
       <NavLink
@@ -37,4 +37,4 @@ const FooterNavLayout = () => {
   )
 }
 
-export default FooterNavLayout
+export default Navigation
