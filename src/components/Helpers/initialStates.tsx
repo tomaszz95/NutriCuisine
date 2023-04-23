@@ -5,6 +5,7 @@ export const InitialProductState: InitialProductStateType = [
   {
     ingredient: '',
     image: '',
+    kcal: '',
     carbohydrates: '',
     fat: '',
     protein: '',

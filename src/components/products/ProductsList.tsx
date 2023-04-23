@@ -18,16 +18,13 @@ const ProductsList = () => {
     dispatch(productsActions.getProductByName(loaderData))
   }, [])
 
-  let products
-  if (JSON.stringify(productsList) === JSON.stringify(products)) return
-  products = productsList
-
   return (
     <ul className={styles.list}>
-      {products.map((item) => (
+      {productsList.map((item) => (
         <ProductItem
           productName={item.ingredient}
           productImage={item.image}
+          productKcal={item.kcal}
           productCarbo={item.carbohydrates}
           productFat={item.fat}
           productProtein={item.protein}

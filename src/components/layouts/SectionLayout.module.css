@@ -14,7 +14,7 @@
   letter-spacing: 2px;
   font-size: 2.2rem;
   color: var(--menu);
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 .title::after {

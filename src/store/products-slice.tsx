@@ -12,6 +12,7 @@ const productsSlice = createSlice({
         return {
           ingredient: item.food.label,
           image: item.food.image,
+          kcal: item.food.nutrients.ENERC_KCAL,
           carbohydrates: item.food.nutrients.CHOCDF,
           fat: item.food.nutrients.FAT,
           protein: item.food.nutrients.PROCNT,

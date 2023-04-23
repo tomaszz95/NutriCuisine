@@ -31,6 +31,7 @@ export type InitialProductStateType = [
   {
     ingredient: string
     image: string
+    kcal: string
     carbohydrates: string
     fat: string
     protein: string
@@ -42,6 +43,7 @@ export type InitialProductStateType = [
 export type SingleProductType = {
   ingredient: string
   image: string
+  kcal: string
   carbohydrates: string
   fat: string
   protein: string
@@ -53,6 +55,7 @@ export type SingleProductType = {
 export type ProductItemType = {
   productName: string
   productImage: string
+  productKcal: string
   productCarbo: string
   productFat: string
   productProtein: string

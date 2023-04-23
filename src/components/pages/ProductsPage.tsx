@@ -6,8 +6,6 @@ const ProductsPage = () => {
     <>
       <SectionLayout title="Check the nutritional values of the product!">
         <ProductsList />
-        <ProductsList />
-        <ProductsList />
       </SectionLayout>
     </>
   )
