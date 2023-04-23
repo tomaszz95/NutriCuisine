@@ -1,4 +1,8 @@
-import { InitialProductStateType, MainFormType } from './types'
+import {
+  InitialProductStateType,
+  MainFormType,
+  ShoppingItemType,
+} from './types'
 
 // PRODUCT LIST
 export const InitialProductState: InitialProductStateType = [
