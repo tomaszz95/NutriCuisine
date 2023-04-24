@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 
-import { ShoppingItemTypeArr } from '../helpers/types'
 import ShoppingListItem from './ShoppingListItem'
 import styles from './ShoppingList.module.css'
+import { ShoppingItemTypeArr } from '../helpers/types'
 
 const ShoppingList = () => {
   const productsList = useSelector<any, ShoppingItemTypeArr>(
