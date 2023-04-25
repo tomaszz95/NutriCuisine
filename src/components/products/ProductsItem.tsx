@@ -37,7 +37,7 @@ const ProductItem: React.FC<ProductItemType> = ({
     if (e.currentTarget.parentElement !== null) {
       const productName = e.currentTarget.parentElement.querySelector('h3')!
         .textContent as string
-      dispatch(shoppingActions.addProductToList(productName))
+      dispatch(shoppingActions.addProductToList({ productName, bought: false }))
     }
   }
 

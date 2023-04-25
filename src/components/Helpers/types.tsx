@@ -63,3 +63,9 @@ export type ProductItemType = {
   productFiber: string
   key: string
 }
+
+// SHOPPING ITEM
+export type InitialShoppingType = {
+  productName: string
+  bought: boolean
+}
