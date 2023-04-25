@@ -63,17 +63,3 @@ export type ProductItemType = {
   productFiber: string
   key: string
 }
-
-// SHOPPING ITEM
-export type ShoppingItemType = {
-  prodImg: string
-  prodName: string
-}
-
-// SHOPPING ITEM ARRAY
-export type ShoppingItemTypeArr = [
-  {
-    prodImg: string
-    prodName: string
-  }
-]

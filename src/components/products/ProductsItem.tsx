@@ -34,26 +34,11 @@ const ProductItem: React.FC<ProductItemType> = ({
     productFiber === undefined ? '0.00' : Number(productFiber).toFixed(2)
 
   const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let imgSrc, h3Text, shoppingObj
-
-    if (
-      e.currentTarget.parentElement !== null &&
-      e.currentTarget.parentElement !== undefined
-    ) {
-      imgSrc = e.currentTarget.parentElement
-        .querySelector('img')
-        ?.getAttribute('src')
-      h3Text = e.currentTarget.parentElement.querySelector('h3')?.textContent
+    if (e.currentTarget.parentElement !== null) {
+      const productName = e.currentTarget.parentElement.querySelector('h3')!
+        .textContent as string
+      dispatch(shoppingActions.addProductToList(productName))
     }
-
-    if (typeof imgSrc === 'string' && typeof h3Text === 'string') {
-      shoppingObj = {
-        prodImg: imgSrc,
-        prodName: h3Text,
-      }
-    }
-
-    dispatch(shoppingActions.addProductToList(shoppingObj))
   }
 
   return (

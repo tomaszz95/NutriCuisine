@@ -4,7 +4,7 @@ import ShoppingList from '../shopping/ShoppingList'
 const ShoppingListPage = () => {
   return (
     <>
-      <SectionLayout title="Your shopping list:">
+      <SectionLayout title="Your shopping list">
         <ShoppingList />
       </SectionLayout>
     </>

@@ -1,7 +1,6 @@
 import {
   InitialProductStateType,
   MainFormType,
-  ShoppingItemType,
 } from './types'
 
 // PRODUCT LIST

@@ -1,17 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { ShoppingItemType } from '../components/helpers/types'
-
 const shoppingSlice = createSlice({
   name: 'shopping',
-  initialState: [] as ShoppingItemType[],
+  initialState: [] as string[],
   reducers: {
     addProductToList(state, action) {
-      const existingItemIndex = state.findIndex(
-        (el) =>
-          el.prodName === action.payload.prodName &&
-          el.prodImg === action.payload.prodImg
-      )
+      const existingItemIndex = state.findIndex((el) => el === action.payload)
 
       if (existingItemIndex === -1) {
         state.push(action.payload)
