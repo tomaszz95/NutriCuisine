@@ -27,6 +27,12 @@ const shoppingSlice = createSlice({
         }
       })
     },
+    deleteProduct(state, action) {
+      const updatedProducts = state.filter(
+        (product) => product.productName !== action.payload
+      )
+      return updatedProducts
+    },
   },
 })
 

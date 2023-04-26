@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
+import { shoppingActions } from '../../store/shopping-slice'
 import { MainFormType } from '../helpers/types'
 import styles from './MainForm.module.css'
 
@@ -53,7 +54,12 @@ const MainForm: React.FC<MainFormType> = ({
           setError('')
           break
         case 'shopping_list':
-          console.log('shopping')
+          dispatch(
+            shoppingActions.addProductToList({
+              productName: inputRef.current.value,
+              bought: false,
+            })
+          )
           setError('')
           break
         default:
@@ -63,6 +69,7 @@ const MainForm: React.FC<MainFormType> = ({
       setError('This field cannot be empty!')
       return
     }
+    inputRef.current.value = ''
   }
 
   return (

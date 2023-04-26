@@ -32,6 +32,9 @@ const ProductsList = () => {
           key={item.id}
         />
       ))}
+      {productsList.length < 1 && (
+        <p className={styles.error}>No product with this name!</p>
+      )}
     </ul>
   )
 }

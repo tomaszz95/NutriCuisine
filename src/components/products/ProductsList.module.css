@@ -6,3 +6,10 @@
   max-width: 1200px;
   margin-bottom: 6em;
 }
+
+.error {
+  margin-top: 2em;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--alert);
+}

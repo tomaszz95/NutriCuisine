@@ -22,12 +22,26 @@ const ShoppingListItem: React.FC<{ prodName: string; isBought: boolean }> = ({
       )
     }
   }
+
+  const deleteProductHandler = (e: React.SyntheticEvent) => {
+    const target = e.target as HTMLButtonElement
+    dispatch(shoppingActions.deleteProduct(target.previousSibling!.textContent))
+  }
+
   return (
     <li className={styles.item}>
+      <input
+        type="checkbox"
+        ref={inputRef}
+        onClick={inputHandler}
+        checked={isBought}
+      />
       <span className={`${styles.name} ${isBought ? styles.checked : ''}`}>
         {prodName}
       </span>
-      <input type="checkbox" ref={inputRef} onClick={inputHandler} />
+      <button className={styles.button} onClick={deleteProductHandler}>
+        X
+      </button>
     </li>
   )
 }

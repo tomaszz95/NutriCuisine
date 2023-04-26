@@ -15,7 +15,11 @@ const ShoppingList = () => {
       <div className={styles.line} />
       <ul className={styles.list}>
         {productsList.map((item) => (
-          <ShoppingItem prodName={item.productName} isBought={item.bought} />
+          <ShoppingItem
+            prodName={item.productName}
+            isBought={item.bought}
+            key={item.productName}
+          />
         ))}
       </ul>
     </div>
