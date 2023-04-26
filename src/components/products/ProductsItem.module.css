@@ -20,7 +20,8 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 2.5em;
+  width: 65px;
+  height: 65px;
   background-color: var(--special);
   border-bottom-right-radius: 12px;
   border-top-left-radius: 12px;

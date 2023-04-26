@@ -6,6 +6,9 @@ const shoppingSlice = createSlice({
   name: 'shopping',
   initialState: [] as InitialShoppingType[],
   reducers: {
+    addProductsFromStorage(_, action) {
+      return action.payload
+    },
     addProductToList(state, action) {
       const existingItemIndex = state.findIndex(
         (el) => el.productName === action.payload.productName

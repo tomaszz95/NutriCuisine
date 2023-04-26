@@ -61,6 +61,7 @@ export type ProductItemType = {
   productFat: string
   productProtein: string
   productFiber: string
+  shoppingList: InitialShoppingType[]
   key: string
 }
 

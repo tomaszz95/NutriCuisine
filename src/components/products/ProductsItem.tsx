@@ -4,6 +4,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import { shoppingActions } from '../../store/shopping-slice'
 import { ProductItemType } from '../helpers/types'
 import styles from './ProductsItem.module.css'
+import { useEffect, useState } from 'react'
 
 const ProductItem: React.FC<ProductItemType> = ({
   productName,
@@ -13,10 +14,22 @@ const ProductItem: React.FC<ProductItemType> = ({
   productFat,
   productProtein,
   productFiber,
+  shoppingList,
 }) => {
+  const [isInShoppingList, setIsInShoppingList] = useState(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
-  let image
 
+  useEffect(() => {
+    if (shoppingList.length < 1) return
+
+    shoppingList.map((product) => {
+      if (product.productName.toLowerCase() === productName.toLowerCase()) {
+        setIsInShoppingList(true)
+      }
+    })
+  }, [])
+
+  let image
   if (productImage === undefined) {
     image =
       'https://t3.ftcdn.net/jpg/05/38/52/48/360_F_538524834_KTWCegIa69mIWDLVx6Sc6tdkW6beiMBR.jpg'
@@ -34,17 +47,28 @@ const ProductItem: React.FC<ProductItemType> = ({
     productFiber === undefined ? '0.00' : Number(productFiber).toFixed(2)
 
   const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (e.currentTarget.parentElement !== null) {
-      const productName = e.currentTarget.parentElement.querySelector('h3')!
-        .textContent as string
+    if (e.currentTarget.parentElement === null) return
+
+    const productName =
+      e.currentTarget.parentElement.querySelector('h3')?.textContent
+
+    if (!isInShoppingList) {
       dispatch(shoppingActions.addProductToList({ productName, bought: false }))
+    } else if (isInShoppingList) {
+      dispatch(shoppingActions.deleteProduct(productName))
     }
+
+    setIsInShoppingList(() => !isInShoppingList)
   }
 
   return (
     <li className={styles.card}>
       <button className={styles.button} onClick={handleShoppingList}>
-        <i className="fa-solid fa-cart-shopping"></i>
+        {isInShoppingList ? (
+          <i className="fa-solid fa-check" />
+        ) : (
+          <i className="fa-solid fa-cart-shopping" />
+        )}
       </button>
       <img src={image} className={styles.image} />
       <h3 className={styles.title}>{productName}</h3>

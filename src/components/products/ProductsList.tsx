@@ -5,7 +5,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import ProductItem from './ProductsItem'
 import { productsActions } from '../../store/products-slice'
-import { InitialProductStateType } from '../helpers/types'
+import { InitialProductStateType, InitialShoppingType } from '../helpers/types'
 import styles from './ProductsList.module.css'
 
 const ProductsList = () => {
@@ -14,10 +14,14 @@ const ProductsList = () => {
   const productsList = useSelector<any, InitialProductStateType>(
     (state) => state.products
   )
+  const shoppingList = useSelector<any, InitialShoppingType[]>(
+    (state) => state.shopping
+  )
+
   useEffect(() => {
     dispatch(productsActions.getProductByName(loaderData))
   }, [])
-
+ 
   return (
     <ul className={styles.list}>
       {productsList.map((item) => (
@@ -29,6 +33,7 @@ const ProductsList = () => {
           productFat={item.fat}
           productProtein={item.protein}
           productFiber={item.fiber}
+          shoppingList={shoppingList}
           key={item.id}
         />
       ))}
