@@ -1,12 +1,12 @@
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { shoppingActions } from '../../store/shopping-slice'
-import { ProductItemType } from '../helpers/types'
+import { ProductItemTypes } from '../helpers/types'
 import styles from './ProductsItem.module.css'
-import { useEffect, useState } from 'react'
 
-const ProductItem: React.FC<ProductItemType> = ({
+const ProductItem: React.FC<ProductItemTypes> = ({
   productName,
   productImage,
   productKcal,
@@ -29,6 +29,21 @@ const ProductItem: React.FC<ProductItemType> = ({
     })
   }, [])
 
+  const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.currentTarget.parentElement === null) return
+
+    const productName =
+      e.currentTarget.parentElement.querySelector('h3')!.textContent
+
+    if (!isInShoppingList) {
+      dispatch(shoppingActions.addProductToList({ productName, bought: false }))
+    } else if (isInShoppingList) {
+      dispatch(shoppingActions.deleteProduct(productName))
+    }
+
+    setIsInShoppingList(() => !isInShoppingList)
+  }
+
   let image
   if (productImage === undefined) {
     image =
@@ -46,31 +61,20 @@ const ProductItem: React.FC<ProductItemType> = ({
   const fiber =
     productFiber === undefined ? '0.00' : Number(productFiber).toFixed(2)
 
-  const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (e.currentTarget.parentElement === null) return
-
-    const productName =
-      e.currentTarget.parentElement.querySelector('h3')?.textContent
-
-    if (!isInShoppingList) {
-      dispatch(shoppingActions.addProductToList({ productName, bought: false }))
-    } else if (isInShoppingList) {
-      dispatch(shoppingActions.deleteProduct(productName))
-    }
-
-    setIsInShoppingList(() => !isInShoppingList)
-  }
-
   return (
     <li className={styles.card}>
-      <button className={styles.button} onClick={handleShoppingList}>
+      <button
+        aria-label="Add / remove products from shopping list button"
+        className={styles.button}
+        onClick={handleShoppingList}
+      >
         {isInShoppingList ? (
           <i className="fa-solid fa-check" />
         ) : (
           <i className="fa-solid fa-cart-shopping" />
         )}
       </button>
-      <img src={image} className={styles.image} />
+      <img src={image} className={styles.image} alt={productName} />
       <h3 className={styles.title}>{productName}</h3>
       <div className={styles.container}>
         <div className={styles.box}>

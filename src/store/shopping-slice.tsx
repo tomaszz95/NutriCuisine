@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { InitialShoppingType } from '../components/helpers/types'
+import { InitialShoppingTypes } from '../components/helpers/types'
 
 const shoppingSlice = createSlice({
   name: 'shopping',
-  initialState: [] as InitialShoppingType[],
+  initialState: [] as InitialShoppingTypes[],
   reducers: {
     addProductsFromStorage(_, action) {
       return action.payload

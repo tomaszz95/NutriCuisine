@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
+import useUrlAddress from '../hooks/useUrlAddress'
 import MainForm from '../form/MainForm'
 import Navigation from '../navigation/Navigation'
 import HeaderLayout from './HeaderLayout'
-import useUrlAddress from '../hooks/useUrlAddress'
 import { InitialRootLayoutState } from '../helpers/initialStates'
 import styles from './RootLayout.module.css'
 
@@ -28,7 +28,6 @@ const RootLayout = () => {
         <MainForm
           placeholderText={formData.placeholderText}
           buttonText={formData.buttonText}
-          errorText={formData.errorText}
           urlQuery={formData.urlQuery}
         />
       </header>

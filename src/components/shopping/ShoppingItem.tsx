@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import useLocalStorage from '../hooks/useLocalStorage'
-import { InitialShoppingType } from '../helpers/types'
+import { InitialShoppingTypes } from '../helpers/types'
 import { shoppingActions } from '../../store/shopping-slice'
 import styles from './ShoppingItem.module.css'
 
@@ -13,10 +13,11 @@ const ShoppingListItem: React.FC<{ prodName: string; isBought: boolean }> = ({
 }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const inputRef = useRef<HTMLInputElement>(null)
-  const productsList = useSelector<any, InitialShoppingType[]>(
+  const productsList = useSelector<any, InitialShoppingTypes[]>(
     (state) => state.shopping
   )
   const { removeValue } = useLocalStorage()
+
   const inputHandler = () => {
     if (inputRef.current) {
       dispatch(
@@ -44,11 +45,16 @@ const ShoppingListItem: React.FC<{ prodName: string; isBought: boolean }> = ({
         ref={inputRef}
         onChange={inputHandler}
         checked={isBought}
+        aria-label="Mark the product as purchased"
       />
       <span className={`${styles.name} ${isBought ? styles.checked : ''}`}>
         {prodName}
       </span>
-      <button className={styles.button} onClick={deleteProductHandler}>
+      <button
+        className={styles.button}
+        onClick={deleteProductHandler}
+        aria-label="Remove item from shopping list"
+      >
         X
       </button>
     </li>

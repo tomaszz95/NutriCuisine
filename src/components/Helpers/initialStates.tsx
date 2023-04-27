@@ -1,11 +1,10 @@
 import {
-  InitialProductStateType,
-  MainFormType,
-  InitialShoppingListType,
+  InitialProductStateTypes,
+  MainFormTypes,
 } from './types'
 
 // PRODUCT LIST
-export const InitialProductState: InitialProductStateType = [
+export const InitialProductState: InitialProductStateTypes = [
   {
     ingredient: '',
     image: '',
@@ -19,10 +18,9 @@ export const InitialProductState: InitialProductStateType = [
 ]
 
 // ROOT LAYOUT
-export const InitialRootLayoutState: MainFormType = {
+export const InitialRootLayoutState: MainFormTypes = {
   titleText: '',
   placeholderText: '',
   buttonText: '',
-  errorText: '',
   urlQuery: '',
 }

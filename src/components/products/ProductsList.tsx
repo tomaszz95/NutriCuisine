@@ -3,18 +3,18 @@ import { useLoaderData } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
-import ProductItem from './ProductsItem'
 import { productsActions } from '../../store/products-slice'
-import { InitialProductStateType, InitialShoppingType } from '../helpers/types'
+import ProductItem from './ProductsItem'
+import { InitialProductStateTypes, InitialShoppingTypes } from '../helpers/types'
 import styles from './ProductsList.module.css'
 
 const ProductsList = () => {
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const loaderData = useLoaderData()
-  const productsList = useSelector<any, InitialProductStateType>(
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const productsList = useSelector<any, InitialProductStateTypes>(
     (state) => state.products
   )
-  const shoppingList = useSelector<any, InitialShoppingType[]>(
+  const shoppingList = useSelector<any, InitialShoppingTypes[]>(
     (state) => state.shopping
   )
 

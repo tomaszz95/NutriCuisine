@@ -1,7 +1,7 @@
-import { TextObjectTypes } from '../helpers/types'
+import { UrlHookObjectTypes } from '../helpers/types'
 
 const useUrlAddress = (address: string) => {
-  let textObject: TextObjectTypes
+  let textObject: UrlHookObjectTypes
 
   switch (address) {
     case 'recipes':
@@ -9,7 +9,6 @@ const useUrlAddress = (address: string) => {
         titleText: 'Recipes',
         placeholderText: 'Search recipe...',
         buttonText: 'Search',
-        errorText: 'There is no recipe with this name!',
       }
       break
     case 'products':
@@ -17,7 +16,6 @@ const useUrlAddress = (address: string) => {
         titleText: 'Products',
         placeholderText: 'Check product nutritional values...',
         buttonText: 'Check',
-        errorText: 'There is no products with this name!',
       }
       break
     case 'favorites':
@@ -25,7 +23,6 @@ const useUrlAddress = (address: string) => {
         titleText: 'Favorites',
         placeholderText: 'Search favorite recipe...',
         buttonText: 'Search',
-        errorText: 'There is no favorite item with this name!',
       }
       break
     case 'shopping_list':
@@ -33,7 +30,6 @@ const useUrlAddress = (address: string) => {
         titleText: 'Shopping List',
         placeholderText: 'Add product to list...',
         buttonText: 'Add',
-        errorText: 'There is no ingredient with this name!',
       }
       break
     default:
@@ -41,7 +37,6 @@ const useUrlAddress = (address: string) => {
         titleText: 'Recipes',
         placeholderText: 'Search recipe...',
         buttonText: 'Search',
-        errorText: 'There is no item with this name!',
       }
   }
 

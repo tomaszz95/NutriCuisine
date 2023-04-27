@@ -3,16 +3,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import useLocalStorage from '../hooks/useLocalStorage'
-import ShoppingItem from './ShoppingItem'
-import { InitialShoppingType } from '../helpers/types'
 import { shoppingActions } from '../../store/shopping-slice'
+import { InitialShoppingTypes } from '../helpers/types'
+import ShoppingItem from './ShoppingItem'
 import styles from './ShoppingList.module.css'
 
 const ShoppingList = () => {
   const [productListFixed, setProductListFixed] = useState<
-    InitialShoppingType[]
+    InitialShoppingTypes[]
   >([])
-  const productsList = useSelector<any, InitialShoppingType[]>(
+  const productsList = useSelector<any, InitialShoppingTypes[]>(
     (state) => state.shopping
   )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()

@@ -4,13 +4,12 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
 import { shoppingActions } from '../../store/shopping-slice'
-import { MainFormType } from '../helpers/types'
+import { MainFormTypes } from '../helpers/types'
 import styles from './MainForm.module.css'
 
-const MainForm: React.FC<MainFormType> = ({
+const MainForm: React.FC<MainFormTypes> = ({
   placeholderText,
   buttonText,
-  errorText,
   urlQuery,
 }) => {
   const [error, setError] = useState<string>('')
@@ -73,7 +72,11 @@ const MainForm: React.FC<MainFormType> = ({
   }
 
   return (
-    <form onSubmit={submitInput} className={styles.form}>
+    <form
+      onSubmit={submitInput}
+      className={styles.form}
+      aria-label="Search form"
+    >
       <input
         className={styles.input}
         placeholder={placeholderText}
@@ -83,10 +86,10 @@ const MainForm: React.FC<MainFormType> = ({
       />
       {error !== '' && <p className={styles.error}>{error}</p>}
       <button
-        aria-label="button"
         type="submit"
         className={styles.button}
         disabled={isWrongUrl}
+        aria-label="Search button"
       >
         {buttonText}
       </button>

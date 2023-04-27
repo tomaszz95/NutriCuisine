@@ -1,7 +1,7 @@
-import { HeaderLayoutType } from '../helpers/types'
+import { HeaderLayoutTypes } from '../helpers/types'
 import styles from './HeaderLayout.module.css'
 
-const HeaderLayout: React.FC<HeaderLayoutType> = ({ titleText }) => {
+const HeaderLayout: React.FC<HeaderLayoutTypes> = ({ titleText }) => {
   return (
     <>
       <div className={styles.shadow} />

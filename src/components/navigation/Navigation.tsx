@@ -1,8 +1,27 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { NavLink, useLocation } from 'react-router-dom'
 
+import { InitialShoppingTypes } from '../helpers/types'
 import styles from './Navigation.module.css'
 
 const Navigation = () => {
+  const location = useLocation()
+  const [cartMove, setCartMove] = useState<boolean>(false)
+  const productsList = useSelector<any, InitialShoppingTypes[]>(
+    (state) => state.shopping
+  )
+
+  useEffect(() => {
+    if (location.pathname === '/products' && productsList.length >= 1) {
+      setCartMove(true)
+    }
+    const timeout = setTimeout(() => {
+      setCartMove(false)
+    }, 500)
+    return () => clearTimeout(timeout)
+  }, [productsList])
+
   return (
     <nav className={styles.nav}>
       <NavLink
@@ -30,7 +49,11 @@ const Navigation = () => {
         to="/shopping_list"
         className={({ isActive }) => (isActive ? `${styles.active}` : '')}
       >
-        <i className="fa-solid fa-cart-shopping"></i>
+        <i
+          className={`fa-solid fa-cart-shopping ${
+            cartMove && styles.shoppingList
+          }`}
+        ></i>
         <span>Shopping list</span>
       </NavLink>
     </nav>

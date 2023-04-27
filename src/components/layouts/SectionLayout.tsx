@@ -1,7 +1,7 @@
-import { SectionTitleType } from '../helpers/types'
+import { SectionLayoutTypes } from '../helpers/types'
 import styles from './SectionLayout.module.css'
 
-const SectionTitle: React.FC<SectionTitleType> = ({ title, children }) => {
+const SectionLayout: React.FC<SectionLayoutTypes> = ({ title, children }) => {
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>{title}</h2>
@@ -10,4 +10,4 @@ const SectionTitle: React.FC<SectionTitleType> = ({ title, children }) => {
   )
 }
 
-export default SectionTitle
+export default SectionLayout

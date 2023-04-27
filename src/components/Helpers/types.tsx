@@ -1,33 +1,31 @@
 // HEADER LAYOUT
-export type HeaderLayoutType = {
+export type HeaderLayoutTypes = {
   titleText: string
 }
 
 // SECTION LAYOUT
-export type SectionTitleType = {
+export type SectionLayoutTypes = {
   title: string
   children: React.ReactNode
 }
 
 // USEURLADDRESS
-export type TextObjectTypes = {
+export type UrlHookObjectTypes = {
   titleText: string
   placeholderText: string
   buttonText: string
-  errorText: string
 }
 
 // MAIN FORM / ROOT LAYOUT
-export type MainFormType = {
+export type MainFormTypes = {
   titleText?: string
   placeholderText: string
   buttonText: string
-  errorText: string
   urlQuery: string
 }
 
 // PRODUCT LIST / PRODUCT STORE
-export type InitialProductStateType = [
+export type InitialProductStateTypes = [
   {
     ingredient: string
     image: string
@@ -40,20 +38,8 @@ export type InitialProductStateType = [
   }
 ]
 
-// SINGLE PRODUCT
-export type SingleProductType = {
-  ingredient: string
-  image: string
-  kcal: string
-  carbohydrates: string
-  fat: string
-  protein: string
-  fiber: string
-  id: string
-}
-
 // PRODUCT ITEM
-export type ProductItemType = {
+export type ProductItemTypes = {
   productName: string
   productImage: string
   productKcal: string
@@ -61,12 +47,12 @@ export type ProductItemType = {
   productFat: string
   productProtein: string
   productFiber: string
-  shoppingList: InitialShoppingType[]
+  shoppingList: InitialShoppingTypes[]
   key: string
 }
 
 // SHOPPING ITEM
-export type InitialShoppingType = {
+export type InitialShoppingTypes = {
   productName: string
   bought: boolean
 }
