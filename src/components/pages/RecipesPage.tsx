@@ -1,9 +1,14 @@
-import { useLoaderData } from 'react-router-dom'
+import SectionLayout from '../layouts/SectionLayout'
+import RecipesList from '../products/ProductsList'
 
 const RecipesPage = () => {
-  const data = useLoaderData()
-  console.log(data)
-  return <div>RecipesPage</div>
+  return (
+    <>
+      <SectionLayout title="Check the nutritional values of the product!">
+        <ProductsList />
+      </SectionLayout>
+    </>
+  )
 }
 
 export default RecipesPage
