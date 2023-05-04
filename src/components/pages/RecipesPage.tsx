@@ -1,11 +1,13 @@
 import SectionLayout from '../layouts/SectionLayout'
-import RecipesList from '../products/ProductsList'
+import RecipesList from '../recipe/RecipeList'
+import RecipeButtons from '../recipe/RecipeButtons'
 
 const RecipesPage = () => {
   return (
     <>
-      <SectionLayout title="Check the nutritional values of the product!">
-        <ProductsList />
+      <SectionLayout title="Search for a recipe!">
+        <RecipeButtons />
+        <RecipesList />
       </SectionLayout>
     </>
   )
