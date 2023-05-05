@@ -7,7 +7,7 @@ const useUrlAddress = (address: string) => {
     case 'recipes':
       textObject = {
         titleText: 'Recipes',
-        placeholderText: 'Search recipe...',
+        placeholderText: 'Search recipe by name...',
         buttonText: 'Search',
       }
       break

@@ -26,6 +26,24 @@ export const fetchProducts = (itemName: string) => {
   }
 }
 
-export const fetchRecipes = (itemName: string) => {
-  console.log('ta')
+export const fetchRecipes = (recipeName: string) => {
+  return async (dispatch: any) => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.edamam.com/api/recipes/v2?type=public&q=${recipeName}&app_id=${
+          import.meta.env.VITE_RECIPEID
+        }&app_key=${import.meta.env.VITE_RECIPEKEY}`
+      )
+
+      const data = await response.json()
+      return data
+    }
+
+    try {
+      const cartData = await fetchData()
+      dispatch(recipesActions.getRecipeByName(cartData))
+    } catch (error) {
+      throw json({ message: 'Could not fetch recipes.' }, { status: 500 })
+    }
+  }
 }
