@@ -5,7 +5,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import RecipeItem from './RecipeItem'
 import { recipesActions } from '../../store/recipes-slice'
-import { InitialRecipesStateTypes } from '../helpers/types'
+import { InitialRecipesStateTypes, RecipeItemTypes } from '../helpers/types'
 import styles from './RecipeList.module.css'
 
 const RecipeList = () => {
@@ -15,9 +15,9 @@ const RecipeList = () => {
     (state) => state.recipes
   )
 
-  // const shoppingList = useSelector<any, InitialShoppingTypes[]>(
-  //   (state) => state.shopping
-  // )
+  const favoriteList = useSelector<any, RecipeItemTypes[]>(
+    (state) => state.favorites
+  )
 
   useEffect(() => {
     dispatch(recipesActions.getRecipeByName(loaderData))
@@ -36,6 +36,7 @@ const RecipeList = () => {
           recipeType={item.mealType}
           recipeId={item.id}
           key={item.id}
+          favoriteList={favoriteList}
         />
       ))}
       {recipesList.length < 1 && (

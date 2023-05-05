@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
-// import { shoppingActions } from '../../store/shopping-slice'
+import { favoritesActions } from '../../store/favorites-slice'
 import { RecipeItemTypes } from '../helpers/types'
 import styles from './RecipeItem.module.css'
 
@@ -15,34 +15,37 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
   recipeIngredients,
   recipeType,
   recipeId,
+  favoriteList,
 }) => {
-  // const [isInShoppingList, setIsInShoppingList] = useState(false)
-  // const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const [isFavorite, setIsFavorite] = useState(false)
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
-  // useEffect(() => {
-  //   if (shoppingList.length < 1) return
+  useEffect(() => {
+    if (favoriteList === undefined || favoriteList.length < 1) return
 
-  //   shoppingList.map((product) => {
-  //     if (product.productName.toLowerCase() === productName.toLowerCase()) {
-  //       setIsInShoppingList(true)
-  //     }
-  //   })
-  // }, [])
+    favoriteList.map((recipe) => {
+      if (recipe.recipeName.toLowerCase() === recipeName.toLowerCase()) {
+        setIsFavorite(true)
+      }
+    })
+  }, [])
+  
+  const handleFavorite = () => {
+    if (!isFavorite) {
+      dispatch(
+        favoritesActions.addRecipeToList({
+          recipeName,
+          recipeImage,
+          recipeIngredients,
+          recipeId,
+        })
+      )
+    } else if (isFavorite) {
+      dispatch(favoritesActions.deleteRecipe(recipeName))
+    }
 
-  // const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   if (e.currentTarget.parentElement === null) return
-
-  //   const productName =
-  //     e.currentTarget.parentElement.querySelector('h3')!.textContent
-
-  //   if (!isInShoppingList) {
-  //     dispatch(shoppingActions.addProductToList({ productName, bought: false }))
-  //   } else if (isInShoppingList) {
-  //     dispatch(shoppingActions.deleteProduct(productName))
-  //   }
-
-  //   setIsInShoppingList(() => !isInShoppingList)
-  // }
+    setIsFavorite(() => !isFavorite)
+  }
 
   let image
   if (recipeImage === undefined) {
@@ -64,13 +67,13 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
       <button
         aria-label="Add / remove recipe from favorites"
         className={styles.button}
-        // onClick={handleShoppingList}
-      ><i className="fa-regular fa-star" />
-        {/* {isInShoppingList ? (
+        onClick={handleFavorite}
+      >
+        {isFavorite ? (
           <i className="fa-solid fa-star" />
         ) : (
           <i className="fa-regular fa-star" />
-        )} */}
+        )}
       </button>
       <img src={image} className={styles.image} alt={recipeName} />
       <h3 className={styles.title}>{recipeName}</h3>

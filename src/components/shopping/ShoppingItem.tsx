@@ -7,7 +7,7 @@ import { InitialShoppingTypes } from '../helpers/types'
 import { shoppingActions } from '../../store/shopping-slice'
 import styles from './ShoppingItem.module.css'
 
-const ShoppingListItem: React.FC<{ prodName: string; isBought: boolean }> = ({
+const ShoppingItem: React.FC<{ prodName: string; isBought: boolean }> = ({
   prodName,
   isBought,
 }) => {
@@ -61,4 +61,4 @@ const ShoppingListItem: React.FC<{ prodName: string; isBought: boolean }> = ({
   )
 }
 
-export default ShoppingListItem
+export default ShoppingItem

@@ -57,7 +57,7 @@ export type InitialShoppingTypes = {
   bought: boolean
 }
 
-// RECIPES LIST
+// RECIPE LIST
 export type InitialRecipesStateTypes = [
   {
     name: string
@@ -71,7 +71,7 @@ export type InitialRecipesStateTypes = [
   }
 ]
 
-// RECIPE Item
+// RECIPE ITEM
 export type RecipeItemTypes = {
   recipeName: string
   recipeImage: string
@@ -80,5 +80,14 @@ export type RecipeItemTypes = {
   recipeCuisine: string
   recipeIngredients: string[]
   recipeType: string
+  recipeId: string
+  favoriteList: RecipeItemTypes[]
+}
+
+// FAVORITE ITEM
+export type FavoriteItemTypes = {
+  recipeName: string
+  recipeImage: string
+  recipeIngredients: string[]
   recipeId: string
 }

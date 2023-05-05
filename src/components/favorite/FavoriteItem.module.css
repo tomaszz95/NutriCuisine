@@ -1,0 +1,62 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  margin-top: 1em;
+  border-bottom: 1px dotted var(--greylish);
+  list-style: none;
+}
+
+.name {
+  text-align: center;
+  margin: 0 1em;
+  font-size: 1.6rem;
+}
+
+.button {
+  padding: 0.5em;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--alert);
+  background-color: transparent;
+  transition: transform 1s ease-out;
+}
+
+.button:hover {
+  transform: rotate(360deg);
+}
+
+.checked {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+@media (min-width: 576px) {
+  .item {
+    margin-top: 1.2rem;
+  }
+  .name {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .item {
+    margin-top: 1.4rem;
+  }
+  .name {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .item {
+    margin-top: 1.6rem;
+  }
+  .name {
+    font-size: 1.9rem;
+  }
+}
