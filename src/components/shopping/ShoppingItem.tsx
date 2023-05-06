@@ -29,9 +29,8 @@ const ShoppingItem: React.FC<{ prodName: string; isBought: boolean }> = ({
     }
   }
 
-  const deleteProductHandler = (e: React.SyntheticEvent) => {
-    const target = e.target as HTMLButtonElement
-    dispatch(shoppingActions.deleteProduct(target.previousSibling!.textContent))
+  const deleteProductHandler = () => {
+    dispatch(shoppingActions.deleteProduct(prodName))
 
     if (productsList.length === 1) {
       removeValue('list')

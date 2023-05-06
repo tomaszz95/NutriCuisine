@@ -1,19 +1,124 @@
 .item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
+  min-width: 340px;
+  max-width: 340px;
+  max-height: 600px;
   width: 100%;
-  margin-top: 1em;
-  border-bottom: 1px dotted var(--greylish);
+  margin: 3em 2em 2em;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 3px -3px 10px var(--secondary);
   list-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.name {
-  text-align: center;
-  margin: 0 1em;
+.item:hover .image {
+  transform: scale(1.05);
+}
+
+.image {
+  width: 100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.3s;
+  object-fit: cover;
+}
+
+.title {
+  margin-top: 1em;
+  padding: 0.5em;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.box {
+  font-size: 1.5rem;
+  margin-left: 0.5em;
+  margin-bottom: 0.4em;
+}
+
+.ingredients {
+  display: block;
+  margin: 0.8em 0;
   font-size: 1.6rem;
+  font-style: italic;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ingredient {
+  text-align: center;
+  margin: 0.4em 0;
+  padding: 0.5em 1em;
+  background-color: var(--menu);
+  border-radius: 12px;
+  color: var(--primary);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.info, .delete {
+  margin-top: 2em;
+  padding: 1em 2em;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  background-color: var(--special);
+  color: var(--secondary);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.delete {
+  margin-top: 1em;
+  background-color: var(--alert);
+  color: var(--secondary);
+}
+
+.info:hover {
+  background-color: rgb(31, 190, 26);
+}
+
+.delete:hover {
+  background-color: rgb(219, 33, 0);
+}
+
+@media (min-width: 1200px) {
+  .card {
+    max-height: 700px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .box {
+    font-size: 1.6rem;
+  }
+
+  .ingredients {
+    font-size: 1.8rem;
+    margin: 1em 0;
+  }
+
+  .info {
+    font-size: 1.6rem;
+  }
 }
 
 .button {
@@ -27,36 +132,4 @@
 
 .button:hover {
   transform: rotate(360deg);
-}
-
-.checked {
-  font-style: italic;
-  text-decoration: line-through;
-}
-
-@media (min-width: 576px) {
-  .item {
-    margin-top: 1.2rem;
-  }
-  .name {
-    font-size: 1.7rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .item {
-    margin-top: 1.4rem;
-  }
-  .name {
-    font-size: 1.8rem;
-  }
-}
-
-@media (min-width: 992px) {
-  .item {
-    margin-top: 1.6rem;
-  }
-  .name {
-    font-size: 1.9rem;
-  }
 }

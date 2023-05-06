@@ -15,11 +15,14 @@ const FavoriteList = () => {
   const recipesList = useSelector<any, FavoriteItemTypes[]>(
     (state) => state.favorites
   )
+  const favoritesInputValue = useSelector<any, ''>(
+    (state) => state.favoritesInput
+  )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const { addValue, getValue } = useLocalStorage()
 
   useEffect(() => {
-    const storageValue = getValue('favorite')
+    const storageValue = getValue('favorites')
     if (recipesList.length === 0) {
       if (storageValue === undefined) {
         setRecipeListFixed([])
@@ -33,20 +36,30 @@ const FavoriteList = () => {
     }
   }, [recipesList])
 
+  const filteredFavList = recipeListFixed.filter((item) => {
+    return item.recipeName
+      .toLowerCase()
+      .includes(favoritesInputValue.toLowerCase())
+  })
+
   return (
-    <div className={styles.container}>
-      <ul className={styles.list}>
-        {recipeListFixed.map((item) => (
-          <FavoriteItem
-            recipeName={item.recipeName}
-            recipeImage={item.recipeImage}
-            recipeIngredients={item.recipeIngredients}
-            recipeId={item.recipeId}
-            key={item.recipeId}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className={styles.list}>
+      {filteredFavList.map((item) => (
+        <FavoriteItem
+          recipeName={item.recipeName}
+          recipeImage={item.recipeImage}
+          recipeIngredients={item.recipeIngredients}
+          recipeId={item.recipeId}
+          key={item.recipeId}
+        />
+      ))}
+      {recipeListFixed.length < 1 && (
+        <p className={styles.error}>No favorite recipes yet!</p>
+      )}
+      {filteredFavList.length < 1 && (
+        <p className={styles.error}>No recipe with this name!</p>
+      )}
+    </ul>
   )
 }
 

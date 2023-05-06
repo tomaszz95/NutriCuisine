@@ -1,7 +1,7 @@
 .card {
   position: relative;
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 340px;
+  max-width: 340px;
   max-height: 600px;
   height: 100%;
   margin: 3em 2em 2em;

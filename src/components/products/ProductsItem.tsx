@@ -29,12 +29,7 @@ const ProductItem: React.FC<ProductItemTypes> = ({
     })
   }, [])
 
-  const handleShoppingList = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (e.currentTarget.parentElement === null) return
-
-    const productName =
-      e.currentTarget.parentElement.querySelector('h3')!.textContent
-
+  const handleShoppingList = () => {
     if (!isInShoppingList) {
       dispatch(shoppingActions.addProductToList({ productName, bought: false }))
     } else if (isInShoppingList) {

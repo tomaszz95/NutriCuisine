@@ -5,6 +5,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
 import { shoppingActions } from '../../store/shopping-slice'
 import { MainFormTypes } from '../helpers/types'
+import { favoritesInputActions } from '../../store/favoritesInput-slice'
 import styles from './MainForm.module.css'
 
 const MainForm: React.FC<MainFormTypes> = ({
@@ -49,7 +50,9 @@ const MainForm: React.FC<MainFormTypes> = ({
           setError('')
           break
         case 'favorites':
-          console.log('fav')
+          dispatch(
+            favoritesInputActions.changeFavoriteInput(inputRef.current.value)
+          )
           setError('')
           break
         case 'shopping_list':
@@ -69,6 +72,11 @@ const MainForm: React.FC<MainFormTypes> = ({
       return
     }
     inputRef.current.value = ''
+  }
+
+  const resetFilter = () => {
+    dispatch(favoritesInputActions.changeFavoriteInput(''))
+    setError('')
   }
 
   return (
@@ -93,6 +101,16 @@ const MainForm: React.FC<MainFormTypes> = ({
       >
         {buttonText}
       </button>
+      {urlQuery === 'favorites' ? (
+        <button
+          className={styles.clear}
+          aria-label="Delete filter button"
+          onClick={resetFilter}
+          type="reset"
+        >
+          Delete filter
+        </button>
+      ) : null}
     </form>
   )
 }
