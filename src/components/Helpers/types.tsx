@@ -91,3 +91,26 @@ export type FavoriteItemTypes = {
   recipeIngredients: string[]
   recipeId: string
 }
+
+// RECIPE DETAILS
+export type RecipeDetailsTypes = {
+  name: string
+  calories: string
+  image: string
+  mealType: string[]
+  dishType: string[]
+  totalWeight: string
+  totalTime: string
+  url: string
+  ingredientLines: string[]
+  dietLabels: string[]
+  healthLabels: string[]
+  totalNutrients: string[]
+  totalDaily: string[]
+  cautions: string[]
+}
+
+// RECIPE DETAILS
+export type RecipeDetailItemProps = {
+  recipeData: RecipeDetailsTypes
+}

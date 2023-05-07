@@ -28,3 +28,19 @@ export async function productsLoader() {
     throw json({ message: 'Could not fetch products.' }, { status: 500 })
   }
 }
+
+export async function detailRecipeLoader(params: any) {
+  const RECIPEDETAIL = `https://api.edamam.com/api/recipes/v2/${
+    params.params.recipeId
+  }?type=public&app_id=${import.meta.env.VITE_RECIPEID}&app_key=${
+    import.meta.env.VITE_RECIPEKEY
+  }`
+
+  try {
+    const response = await fetch(RECIPEDETAIL)
+    const resData = await response.json()
+    return resData
+  } catch {
+    throw json({ message: 'Could not fetch recipe.' }, { status: 500 })
+  }
+}

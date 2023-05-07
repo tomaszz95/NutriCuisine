@@ -41,7 +41,7 @@ const FavoriteList = () => {
       .toLowerCase()
       .includes(favoritesInputValue.toLowerCase())
   })
-
+  console.log(recipesList)
   return (
     <ul className={styles.list}>
       {filteredFavList.map((item) => (
