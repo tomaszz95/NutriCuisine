@@ -5,6 +5,7 @@ import useLocalStorage from '../hooks/useLocalStorage'
 import { FavoriteItemTypes } from '../helpers/types'
 import { favoritesActions } from '../../store/favorites-slice'
 import styles from './FavoriteItem.module.css'
+import { Link } from 'react-router-dom'
 
 const FavoriteItem: React.FC<FavoriteItemTypes> = ({
   recipeName,
@@ -48,9 +49,13 @@ const FavoriteItem: React.FC<FavoriteItemTypes> = ({
           ))}
         </div>
         <div className={styles.buttons}>
-          <a className={styles.info} aria-label="Recipe details page">
+          <Link
+            to={`/detail/${recipeId}`}
+            className={styles.info}
+            aria-label="Recipe details page"
+          >
             Click for more info
-          </a>
+          </Link>
           <button
             className={styles.delete}
             onClick={deleteRecipeHandler}

@@ -5,7 +5,7 @@ import styles from './ErrorPage.module.css'
 
 const ErrorPage = () => {
   const error: any = useRouteError()
-
+  console.log(error.status)
   let title, message, messageInfo
 
   if (error.status === 500) {
@@ -16,7 +16,7 @@ const ErrorPage = () => {
       : (messageInfo = 'Try to enter valid product name!')
   }
 
-  if (error.status === 404) {
+  if (error.status === 404 || error.status === undefined) {
     title = 'Not found!'
     message = 'Could not find resource or page!'
     messageInfo = 'Try enter a proper url address!'

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import { Link } from 'react-router-dom'
 
 import { favoritesActions } from '../../store/favorites-slice'
 import { RecipeItemTypes } from '../helpers/types'
@@ -29,7 +30,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
       }
     })
   }, [])
-  
+
   const handleFavorite = () => {
     if (!isFavorite) {
       dispatch(
@@ -80,7 +81,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
       <div className={styles.container}>
         <div className={styles.box}>
           <i className="fa-solid fa-pizza-slice" />
-          <span>Calories:</span>
+          <span>Total calories:</span>
           <b>{kcal}kcal</b>
         </div>
         <div className={styles.box}>
@@ -89,7 +90,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
           <b>{weight}g</b>
         </div>
         <div className={styles.box}>
-          <i className="fa-solid fa-map"></i>
+          <i className="fa-solid fa-map-location"></i>
           <span>Cuisine:</span>
           <b>{cuisine}</b>
         </div>
@@ -106,9 +107,13 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
             </div>
           ))}
         </div>
-        <a className={styles.info} aria-label="Recipe details page">
+        <Link
+          to={`/detail/${recipeId}`}
+          className={styles.info}
+          aria-label="Recipe details page"
+        >
           Click for more info
-        </a>
+        </Link>
       </div>
     </li>
   )

@@ -17,7 +17,7 @@ const MainForm: React.FC<MainFormTypes> = ({
   const [isWrongUrl, setIsWrongUrl] = useState<boolean>(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const inputRef = useRef<HTMLInputElement>(null)
-
+ 
   useEffect(() => {
     if (
       urlQuery === 'recipes' ||

@@ -1,0 +1,27 @@
+.detail {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 1.5em;
+  background-color: #fff;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+@media (min-width: 786px) {
+  .detail {
+    margin-top: 3em;
+    max-width: 800px;
+    padding: 1.5em;
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .detail {
+    min-width: 1200px;
+  }
+}

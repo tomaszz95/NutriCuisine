@@ -41,7 +41,7 @@ const FavoriteList = () => {
       .toLowerCase()
       .includes(favoritesInputValue.toLowerCase())
   })
-  console.log(recipesList)
+  
   return (
     <ul className={styles.list}>
       {filteredFavList.map((item) => (
@@ -56,7 +56,7 @@ const FavoriteList = () => {
       {recipeListFixed.length < 1 && (
         <p className={styles.error}>No favorite recipes yet!</p>
       )}
-      {filteredFavList.length < 1 && (
+      {filteredFavList.length < 1 && recipeListFixed.length >= 1 && (
         <p className={styles.error}>No recipe with this name!</p>
       )}
     </ul>

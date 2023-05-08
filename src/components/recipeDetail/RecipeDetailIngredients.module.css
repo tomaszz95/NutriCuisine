@@ -1,0 +1,35 @@
+.ingredients {
+  margin-top: 2em;
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+}
+
+.ingredients b {
+  font-size: 1.8rem;
+  color: var(--menu);
+}
+
+.ingredient {
+  margin-top: 1em;
+  list-style: circle inside;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .ingredients {
+    margin-top: 3em;
+    max-width: 450px;
+  }
+
+  .ingredients b {
+    font-size: 2rem;
+  }
+  
+  .ingredient {
+    font-size: 1.6rem;
+  }
+}

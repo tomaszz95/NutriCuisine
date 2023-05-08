@@ -1,8 +1,7 @@
 .item {
-  min-width: 340px;
+  min-width: 300px;
   max-width: 340px;
   max-height: 600px;
-  width: 100%;
   margin: 3em 2em 2em;
   border: none;
   border-radius: 12px;

@@ -3,21 +3,20 @@ import { useLoaderData } from 'react-router-dom'
 
 import { InitialDetailRecipeState } from '../helpers/initialStates'
 import SectionLayout from '../layouts/SectionLayout'
-import RecipeDetailItem from './RecipeDetailItem'
+import RecipeDetail from '../recipeDetail/RecipeDetail'
 
-const RecipeDetail = () => {
+const RecipeDetailPage = () => {
   const [recipeData, setRecipeData] = useState(InitialDetailRecipeState)
   const loaderData: any = useLoaderData()
 
   useEffect(() => {
     setRecipeData({
       name: loaderData.recipe.label,
-      calories: loaderData.recipe.calories.toFixed(),
+      totalCalories: loaderData.recipe.calories.toFixed(),
       image: loaderData.recipe.image,
-      mealType: loaderData.recipe.mealType,
-      dishType: loaderData.recipe.dishType,
+      mealType: loaderData.recipe.mealType[0],
       totalWeight: loaderData.recipe.totalWeight.toFixed(),
-      totalTime: loaderData.recipe.totalTime,
+      totalTime: loaderData.recipe.totalTime.toString(),
       url: loaderData.recipe.url,
       ingredientLines: loaderData.recipe.ingredientLines,
       dietLabels: loaderData.recipe.dietLabels,
@@ -25,16 +24,18 @@ const RecipeDetail = () => {
       totalNutrients: loaderData.recipe.totalNutrients,
       totalDaily: loaderData.recipe.totalDaily,
       cautions: loaderData.recipe.cautions,
+      cuisine: loaderData.recipe.cuisineType[0],
     })
   }, [loaderData])
 
+  console.log(recipeData)
   return (
     <>
       <SectionLayout title="Detail informations about recipe">
-        <RecipeDetailItem recipeData={recipeData} />
+        <RecipeDetail recipeData={recipeData} />
       </SectionLayout>
     </>
   )
 }
 
-export default RecipeDetail
+export default RecipeDetailPage

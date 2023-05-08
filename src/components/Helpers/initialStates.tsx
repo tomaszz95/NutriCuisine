@@ -1,7 +1,7 @@
 import {
   InitialProductStateTypes,
   MainFormTypes,
-  RecipeDetailsTypes,
+  RecipeDetailTypes,
 } from './types'
 
 // PRODUCT LIST
@@ -27,12 +27,11 @@ export const InitialRootLayoutState: MainFormTypes = {
 }
 
 // DETAIL RECIPE
-export const InitialDetailRecipeState: RecipeDetailsTypes = {
+export const InitialDetailRecipeState: RecipeDetailTypes = {
   name: '',
-  calories: '',
+  totalCalories: '',
   image: '',
-  mealType: [],
-  dishType: [],
+  mealType: '',
   totalWeight: '',
   totalTime: '',
   url: '',
@@ -42,4 +41,5 @@ export const InitialDetailRecipeState: RecipeDetailsTypes = {
   totalNutrients: [],
   totalDaily: [],
   cautions: [],
+  cuisine: '',
 }

@@ -93,12 +93,11 @@ export type FavoriteItemTypes = {
 }
 
 // RECIPE DETAILS
-export type RecipeDetailsTypes = {
+export type RecipeDetailTypes = {
   name: string
-  calories: string
+  totalCalories: string
   image: string
-  mealType: string[]
-  dishType: string[]
+  mealType: string
   totalWeight: string
   totalTime: string
   url: string
@@ -108,9 +107,38 @@ export type RecipeDetailsTypes = {
   totalNutrients: string[]
   totalDaily: string[]
   cautions: string[]
+  cuisine: string
 }
 
 // RECIPE DETAILS
-export type RecipeDetailItemProps = {
-  recipeData: RecipeDetailsTypes
+export type RecipeDetailProps = {
+  recipeData: RecipeDetailTypes
+}
+
+// RECIPE DETAILS ICON LIST
+export type RecipeDetailIconListProps = {
+  totalCalories: string
+  totalWeight: string
+  cuisine: string
+  mealType: string
+  totalTime: string
+}
+
+// RECIPE DETAILS ICONS
+export type RecipeDetailIconsProps = {
+  iconClass: string
+  headingText: string
+  property: string
+}
+
+// RECIPE DETAILS INGREDIENTS
+export type RecipeDetailIngredientsProps = {
+  ingredients: string[]
+}
+
+// RECIPE DETAILS LABELS
+export type RecipeDetailLabelsProps = {
+  cautions: string[]
+  dietLabels: string[]
+  healthLabels: string[]
 }
