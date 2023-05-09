@@ -6,6 +6,7 @@
   text-align: left;
   width: 100%;
   max-width: 400px;
+  text-align: center;
 }
 
 .ingredients b {
@@ -14,6 +15,7 @@
 }
 
 .ingredient {
+  text-align: left;
   margin-top: 1em;
   list-style: circle inside;
   font-size: 1.4rem;
@@ -28,7 +30,7 @@
   .ingredients b {
     font-size: 2rem;
   }
-  
+
   .ingredient {
     font-size: 1.6rem;
   }

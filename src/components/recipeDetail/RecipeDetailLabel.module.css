@@ -1,0 +1,52 @@
+.box {
+  margin: 1em;
+  list-style: none;
+  text-align: center;
+}
+
+.label {
+  font-size: 1.8rem;
+  color: var(--menu);
+  margin-bottom: 0.4em;
+}
+
+.item {
+  display: inline-block;
+  margin: 0.4em;
+  padding: 0.5em 1em;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  min-width: 180px;
+  max-width: 180px;
+}
+
+.health {
+  background-color: var(--special);
+  color: var(--secondary);
+}
+
+.diet {
+  background-color: var(--shopping);
+  color: var(--secondary);
+}
+
+.cautions {
+  background-color: var(--alert);
+  color: var(--secondary);
+}
+
+.empty {
+  margin: 0.4em 0;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 2rem;
+  }
+
+  .item {
+    font-size: 1.6rem;
+  }
+}

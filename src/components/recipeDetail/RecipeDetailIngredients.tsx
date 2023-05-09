@@ -8,7 +8,9 @@ const RecipeDetailIngredients: React.FC<RecipeDetailIngredientsProps> = ({
     <ul className={styles.ingredients}>
       <b>Ingredients:</b>
       {ingredients.map((ingr) => (
-        <li className={styles.ingredient}>{ingr}</li>
+        <li className={styles.ingredient} key={styles.ingredient}>
+          {ingr}
+        </li>
       ))}
     </ul>
   )

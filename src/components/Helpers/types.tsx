@@ -142,3 +142,9 @@ export type RecipeDetailLabelsProps = {
   dietLabels: string[]
   healthLabels: string[]
 }
+
+// RECIPE DETAILS LABEL
+export type RecipeDetailLabelProps = {
+  label: string
+  labelList: string[]
+}

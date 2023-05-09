@@ -25,6 +25,14 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipeData }) => {
         totalTime={recipeData.totalTime}
       />
       <RecipeDetailIngredients ingredients={recipeData.ingredientLines} />
+      <a
+        className={styles.instructionsBtn}
+        aria-label="Go to page with cooking instructions"
+        href={recipeData.url}
+        target="_blank"
+      >
+        Cooking Instructions
+      </a>
       <RecipeDetailLabels
         cautions={recipeData.cautions}
         dietLabels={recipeData.dietLabels}

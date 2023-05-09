@@ -49,7 +49,28 @@
 
 .title:hover::after,
 .title:hover::before {
-  transform: scale(1.5);
+  transform: scale(1.3);
+}
+
+.instructionsBtn {
+  text-decoration: none;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8em 1.8em;
+  margin: 1.8em 0 0.7em;
+  border-radius: 12px;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  color: var(--secondary);
+  background-color: var(--special);
+  border: 3px solid var(--secondary);
+}
+
+.instructionsBtn:hover {
+  color: var(--special);
+  background-color: var(--secondary);
+  border: 3px solid var(--special);
 }
 
 @media (min-width: 768px) {
