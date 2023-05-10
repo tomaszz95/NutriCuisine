@@ -104,7 +104,6 @@ export type RecipeDetailTypes = {
   ingredientLines: string[]
   dietLabels: string[]
   healthLabels: string[]
-  totalNutrients: string[]
   totalDaily: string[]
   cautions: string[]
   cuisine: string
@@ -147,4 +146,10 @@ export type RecipeDetailLabelsProps = {
 export type RecipeDetailLabelProps = {
   label: string
   labelList: string[]
+}
+
+// RECIPE DETAILS NUTRIENS LISTS
+export type RecipeDetailNutrientsListsTypes = {
+  totalWeight: string
+  totalDaily: string[]
 }

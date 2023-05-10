@@ -21,14 +21,12 @@ const RecipeDetailPage = () => {
       ingredientLines: loaderData.recipe.ingredientLines,
       dietLabels: loaderData.recipe.dietLabels,
       healthLabels: loaderData.recipe.healthLabels,
-      totalNutrients: loaderData.recipe.totalNutrients,
       totalDaily: loaderData.recipe.totalDaily,
       cautions: loaderData.recipe.cautions,
       cuisine: loaderData.recipe.cuisineType[0],
     })
   }, [loaderData])
 
-  console.log(recipeData)
   return (
     <>
       <SectionLayout title="Detail informations about recipe">

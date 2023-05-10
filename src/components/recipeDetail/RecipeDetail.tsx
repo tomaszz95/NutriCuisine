@@ -1,6 +1,7 @@
 import RecipeDetailIconList from './RecipeDetailIconList'
 import RecipeDetailIngredients from './RecipeDetailIngredients'
 import RecipeDetailLabels from './RecipeDetailLabels'
+import RecipeDetailNutrientsLists from './RecipeDetailNutrientsLists'
 import { RecipeDetailProps } from '../helpers/types'
 import styles from './RecipeDetail.module.css'
 
@@ -37,6 +38,10 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipeData }) => {
         cautions={recipeData.cautions}
         dietLabels={recipeData.dietLabels}
         healthLabels={recipeData.healthLabels}
+      />
+      <RecipeDetailNutrientsLists
+        totalWeight={recipeData.totalWeight}
+        totalDaily={recipeData.totalDaily}
       />
     </div>
   )

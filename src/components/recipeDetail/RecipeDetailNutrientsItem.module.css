@@ -1,0 +1,76 @@
+.list {
+  list-style: none;
+  margin: 2em;
+  font-size: 1.2rem;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.4em 0;
+}
+
+.nutrientValue {
+  margin-right: 1em;
+}
+
+.box {
+  margin-left: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colorBar {
+  height: 15px;
+  width: 40px;
+  background-color: var(--primary);
+  border: 1px solid var(--secondary);
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 15px;
+  width: 0px;
+}
+
+.progressBar.red {
+  background-color: var(--alert);
+}
+
+.progressBar.yellow {
+  background-color: rgb(248, 252, 19);
+}
+
+.progressBar.green {
+  background-color: var(--special);
+}
+
+.progressBar.blue {
+  background-color: rgb(1, 199, 248);
+}
+
+@media (min-width: 768px) {
+  .list {
+    margin: 2.5em;
+    font-size: 1.4rem;
+  }
+
+  .item {
+    margin: 0.6em 0;
+  }
+
+  .nutrientValue {
+    margin-right: 1.2em;
+  }
+
+  .colorBar {
+    height: 20px;
+    width: 50px;
+  }
+
+  .progressBar {
+    height: 20px;
+  }
+}
