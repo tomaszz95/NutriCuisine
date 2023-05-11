@@ -4,11 +4,11 @@ import RootLayout from './components/layouts/RootLayout'
 import ErrorPage from './components/pages/ErrorPage'
 import RecipesPage from './components/pages/RecipesPage'
 import ProductsPage from './components/pages/ProductsPage'
+import RecipeDetailPage from './components/pages/RecipeDetailPage'
 import FavoritesPage from './components/pages/FavoritesPage'
 import ShoppingListPage from './components/pages/ShoppingListPage'
 import LoginPage from './components/pages/LoginPage'
 import SingupPage from './components/pages/SingupPage'
-import RecipeDetailPage from './components/pages/RecipeDetailPage'
 import {
   recipesLoader,
   productsLoader,
@@ -21,7 +21,11 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <RecipesPage />, loader: recipesLoader },
+      {
+        index: true,
+        element: <RecipesPage />,
+        loader: recipesLoader,
+      },
       {
         path: 'recipes',
         element: <RecipesPage />,

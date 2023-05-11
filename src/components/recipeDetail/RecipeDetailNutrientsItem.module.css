@@ -74,3 +74,27 @@
     height: 20px;
   }
 }
+
+@media (min-width: 1200px) {
+  .list {
+    margin: 2em;
+    font-size: 1.6rem;
+  }
+
+  .item {
+    margin: 0.8em 0;
+  }
+
+  .nutrientValue {
+    margin-right: 1.5em;
+  }
+
+  .colorBar {
+    height: 25px;
+    width: 60px;
+  }
+
+  .progressBar {
+    height: 25px;
+  }
+}

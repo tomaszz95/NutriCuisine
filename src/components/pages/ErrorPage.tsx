@@ -5,7 +5,7 @@ import styles from './ErrorPage.module.css'
 
 const ErrorPage = () => {
   const error: any = useRouteError()
-  console.log(error.status)
+
   let title, message, messageInfo
 
   if (error.status === 500) {

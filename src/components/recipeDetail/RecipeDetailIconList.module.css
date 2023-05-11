@@ -23,5 +23,6 @@
 @media (min-width: 1200px) {
   .detail {
     min-width: 1200px;
+    order: 5;
   }
 }
