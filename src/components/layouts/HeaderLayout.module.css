@@ -33,6 +33,7 @@
   padding: 1em;
   cursor: pointer;
   background-color: transparent;
+  text-decoration: none;
 }
 
 .button:hover > .icon {

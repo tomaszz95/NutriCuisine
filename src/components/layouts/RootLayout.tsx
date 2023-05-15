@@ -11,27 +11,40 @@ import styles from './RootLayout.module.css'
 
 const RootLayout = () => {
   const [formData, setFormData] = useState(InitialRootLayoutState)
+  const [layoutPage, setLayoutPage] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
-    let urlQuery = location.pathname.slice(1)
+    const urlQuery: string = location.pathname.slice(1)
     const formTextData = useUrlAddress(urlQuery)
     setFormData({ urlQuery, ...formTextData })
+
+    if (
+      urlQuery === 'login' ||
+      urlQuery === 'signup' ||
+      urlQuery.includes('detail')
+    ) {
+      setLayoutPage(false)
+    } else {
+      setLayoutPage(true)
+    }
   }, [location.pathname])
 
   return (
     <>
-      <header className={styles.header}>
-        <HeaderLayout
-          titleText={formData.titleText ? formData.titleText : ''}
-        />
-        <MainForm
-          placeholderText={formData.placeholderText}
-          buttonText={formData.buttonText}
-          urlQuery={formData.urlQuery}
-        />
-      </header>
-      <main className={styles.main}>
+      {layoutPage && (
+        <header className={styles.header}>
+          <HeaderLayout
+            titleText={formData.titleText ? formData.titleText : ''}
+          />
+          <MainForm
+            placeholderText={formData.placeholderText}
+            buttonText={formData.buttonText}
+            urlQuery={formData.urlQuery}
+          />
+        </header>
+      )}
+      <main className={`${styles.main} ${!layoutPage ? styles.login : ''}`}>
         <Outlet />
       </main>
       <footer className={styles.footer}>

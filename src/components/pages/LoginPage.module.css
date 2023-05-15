@@ -1,0 +1,140 @@
+.container {
+  padding: 2em;
+  text-align: center;
+  margin-bottom: 6em;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  margin-top: 3em;
+}
+
+.formHeader {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.formInput {
+  padding: 0.8em 3em;
+  margin-top: 1em;
+  border-radius: 12px;
+  border: 2px solid var(--secondary);
+  font-size: 1.4rem;
+}
+
+.formButton {
+  margin-top: 1em;
+  font-size: 2rem;
+  padding: 0.5em 2em;
+  background-color: var(--special);
+  border-radius: 12px;
+  border: 2px solid var(--secondary);
+  transition: background-color 0.3s;
+}
+
+.formButton:hover {
+  background-color: var(--primary);
+  border: 2px solid var(--special);
+}
+
+.error {
+  margin-top: 0.4em;
+  font-size: 1.3rem;
+  color: var(--alert);
+  font-weight: bold;
+}
+
+.redirect {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.redirectText {
+  margin-right: 0.5em;
+}
+
+.redirectLink {
+  color: rgb(12, 12, 224);
+}
+
+input.error {
+  border: 2px solid var(--alert);
+}
+
+@media (min-width: 786px) {
+  .form {
+    margin-top: 6em;
+  }
+
+  .formHeader {
+    font-size: 2.2rem;
+  }
+
+  .formInput {
+    padding: 1em 4em;
+    margin-top: 2em;
+    font-size: 1.6rem;
+  }
+
+  .formButton {
+    margin-top: 2em;
+    font-size: 2.2rem;
+    padding: 0.6em 3em;
+  }
+
+  .error {
+    margin-top: 0.6em;
+    font-size: 1.4rem;
+  }
+
+  .redirect {
+    margin-top: 2em;
+    font-size: 1.6rem;
+  }
+
+  .redirectText {
+    margin-right: 0.6em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form {
+    margin-top: 8em;
+  }
+
+  .formHeader {
+    font-size: 2.4rem;
+  }
+
+  .formInput {
+    padding: 1em 6em;
+    font-size: 1.8rem;
+  }
+
+  .formButton {
+    margin-top: 2em;
+    font-size: 2.4rem;
+    padding: 0.6em 5em;
+  }
+
+  .error {
+    margin-top: 0.8em;
+    font-size: 1.6rem;
+  }
+
+  .redirect {
+    font-size: 1.8rem;
+  }
+
+  .redirectText {
+    margin-right: 0.8em;
+  }
+}

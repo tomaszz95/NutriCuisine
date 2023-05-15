@@ -8,7 +8,7 @@ import RecipeDetailPage from './components/pages/RecipeDetailPage'
 import FavoritesPage from './components/pages/FavoritesPage'
 import ShoppingListPage from './components/pages/ShoppingListPage'
 import LoginPage from './components/pages/LoginPage'
-import SingupPage from './components/pages/SingupPage'
+import SignupPage from './components/pages/SignupPage'
 import {
   recipesLoader,
   productsLoader,
@@ -45,6 +45,14 @@ const router = createBrowserRouter([
         element: <ShoppingListPage />,
       },
       {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'signup',
+        element: <SignupPage />,
+      },
+      {
         path: 'detail/:recipeId',
         element: <RecipeDetailPage />,
         loader: detailRecipeLoader,
@@ -58,7 +66,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/signup',
-    element: <SingupPage />,
+    element: <SignupPage />,
     errorElement: <ErrorPage />,
   },
 ])

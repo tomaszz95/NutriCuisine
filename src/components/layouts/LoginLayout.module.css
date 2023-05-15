@@ -1,0 +1,56 @@
+.logoBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.logoShape {
+  font-size: 5rem;
+  color: var(--special);
+}
+
+.logoHeader {
+  margin-top: 1em;
+  font-size: 2.4rem;
+  color: var(--menu);
+}
+
+.logoText {
+  margin-top: 0.5em;
+  font-size: 1.6rem;
+  font-style: italic;
+}
+
+@media (min-width: 786px) {
+  .logoShape {
+    font-size: 8rem;
+  }
+
+  .logoHeader {
+    margin-top: 2em;
+    font-size: 2.8rem;
+  }
+
+  .logoText {
+    margin-top: 0.8em;
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logoShape {
+    font-size: 10rem;
+  }
+
+  .logoHeader {
+    margin-top: 3em;
+    font-size: 3rem;
+  }
+
+  .logoText {
+    margin-top: 1em;
+    font-size: 2rem;
+  }
+}
