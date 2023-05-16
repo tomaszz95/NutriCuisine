@@ -44,7 +44,13 @@ const RootLayout = () => {
           />
         </header>
       )}
-      <main className={`${styles.main} ${!layoutPage ? styles.login : ''}`}>
+      <main
+        className={`${styles.main} ${
+          !layoutPage && !location.pathname.slice(1).includes('detail')
+            ? styles.login
+            : ''
+        }`}
+      >
         <Outlet />
       </main>
       <footer className={styles.footer}>

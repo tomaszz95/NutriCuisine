@@ -32,15 +32,14 @@
   margin-top: 1em;
   font-size: 2rem;
   padding: 0.5em 2em;
-  background-color: var(--special);
   border-radius: 12px;
-  border: 2px solid var(--secondary);
+  border: 3px solid var(--special);
   transition: background-color 0.3s;
+  font-weight: bold;
 }
 
 .formButton:hover {
-  background-color: var(--primary);
-  border: 2px solid var(--special);
+  background-color: var(--special);
 }
 
 .error {
@@ -66,71 +65,71 @@
 }
 
 @media (min-width: 786px) {
-    .form {
-      margin-top: 6em;
-    }
-  
-    .formHeader {
-      font-size: 2.2rem;
-    }
-  
-    .formInput {
-      padding: 1em 4em;
-      margin-top: 2em;
-      font-size: 1.6rem;
-    }
-  
-    .formButton {
-      margin-top: 2em;
-      font-size: 2.2rem;
-      padding: 0.6em 3em;
-    }
-  
-    .error {
-      margin-top: 0.6em;
-      font-size: 1.4rem;
-    }
-  
-    .redirect {
-      margin-top: 2em;
-      font-size: 1.6rem;
-    }
-  
-    .redirectText {
-      margin-right: 0.6em;
-    }
+  .form {
+    margin-top: 6em;
   }
 
-  @media (min-width: 1200px) {
-    .form {
-      margin-top: 8em;
-    }
-  
-    .formHeader {
-      font-size: 2.4rem;
-    }
-  
-    .formInput {
-      padding: 1em 6em;
-      font-size: 1.8rem;
-    }
-  
-    .formButton {
-      margin-top: 2em;
-      font-size: 2.4rem;
-      padding: 0.6em 5em;
-    }
-  
-    .error {
-      margin-top: 0.8em;
-      font-size: 1.6rem;
-    }
-  
-    .redirect {
-      font-size: 1.8rem;
-    }
-  
-    .redirectText {
-      margin-right: 0.8em;
-    }
+  .formHeader {
+    font-size: 2.2rem;
   }
+
+  .formInput {
+    padding: 1em 4em;
+    margin-top: 2em;
+    font-size: 1.6rem;
+  }
+
+  .formButton {
+    margin-top: 2em;
+    font-size: 2.2rem;
+    padding: 0.6em 3em;
+  }
+
+  .error {
+    margin-top: 0.6em;
+    font-size: 1.4rem;
+  }
+
+  .redirect {
+    margin-top: 2em;
+    font-size: 1.6rem;
+  }
+
+  .redirectText {
+    margin-right: 0.6em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form {
+    margin-top: 8em;
+  }
+
+  .formHeader {
+    font-size: 2.4rem;
+  }
+
+  .formInput {
+    padding: 1em 6em;
+    font-size: 1.8rem;
+  }
+
+  .formButton {
+    margin-top: 2em;
+    font-size: 2.4rem;
+    padding: 0.6em 5em;
+  }
+
+  .error {
+    margin-top: 0.8em;
+    font-size: 1.6rem;
+  }
+
+  .redirect {
+    font-size: 1.8rem;
+  }
+
+  .redirectText {
+    margin-right: 0.8em;
+  }
+}

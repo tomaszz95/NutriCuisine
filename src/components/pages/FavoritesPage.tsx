@@ -1,19 +1,24 @@
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
-import SectionLayout from '../layouts/SectionLayout'
 import FavoriteList from '../favorite/FavoriteList'
+import SectionLayout from '../layouts/SectionLayout'
+import BlockedLayout from '../layouts/BlockedLayout'
 import { favoritesInputActions } from '../../store/favoritesInput-slice'
 
 const FavoritesPage = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const loginStatus = useSelector<any, boolean>((state) => state.login)
 
-  dispatch(favoritesInputActions.changeFavoriteInput(''))
+  useEffect(() => {
+    dispatch(favoritesInputActions.changeFavoriteInput(''))
+  }, [])
 
   return (
     <>
       <SectionLayout title="Your favorite recipes">
-        <FavoriteList />
+        {loginStatus ? <FavoriteList /> : <BlockedLayout />}
       </SectionLayout>
     </>
   )

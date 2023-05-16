@@ -1,6 +1,10 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { ThunkDispatch } from '@reduxjs/toolkit'
+
 import LoginLayout from '../layouts/LoginLayout'
+import { loginActions } from '../../store/login-slice'
 import styles from './SignupPage.module.css'
 
 const SignUpPage = () => {
@@ -10,6 +14,7 @@ const SignUpPage = () => {
   const [usernameError, setUsernameError] = useState<boolean>(false)
   const [passwordError, setPasswordError] = useState<boolean>(false)
   const [password2Error, setPassword2Error] = useState<boolean>(false)
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -34,6 +39,7 @@ const SignUpPage = () => {
       passwordRef.current.value.length >= 8 &&
       passwordRef.current.value === passwordRef2.current.value
     ) {
+      dispatch(loginActions.changeLoginState(true))
       usernameRef.current.value = ''
       passwordRef.current.value = ''
       passwordRef2.current.value = ''

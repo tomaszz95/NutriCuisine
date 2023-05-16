@@ -1,6 +1,10 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { ThunkDispatch } from '@reduxjs/toolkit'
+
 import LoginLayout from '../layouts/LoginLayout'
+import { loginActions } from '../../store/login-slice'
 import styles from './LoginPage.module.css'
 
 const LoginPage = () => {
@@ -8,6 +12,7 @@ const LoginPage = () => {
   const passwordRef = useRef<HTMLInputElement>(null)
   const [usernameError, setUsernameError] = useState<boolean>(false)
   const [passwordError, setPasswordError] = useState<boolean>(false)
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,6 +31,7 @@ const LoginPage = () => {
       usernameRef.current.value.length >= 5 &&
       passwordRef.current.value.length >= 8
     ) {
+      dispatch(loginActions.changeLoginState(true))
       usernameRef.current.value = ''
       passwordRef.current.value = ''
     }

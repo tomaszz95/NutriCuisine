@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
@@ -14,7 +14,7 @@ const RecipeList = () => {
   const recipesList = useSelector<any, InitialRecipesStateTypes>(
     (state) => state.recipes
   )
-
+ 
   const favoriteList = useSelector<any, RecipeItemTypes[]>(
     (state) => state.favorites
   )
