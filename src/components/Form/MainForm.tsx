@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
@@ -17,14 +17,14 @@ const MainForm: React.FC<MainFormTypes> = ({
   const [isWrongUrl, setIsWrongUrl] = useState<boolean>(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const inputRef = useRef<HTMLInputElement>(null)
- 
+  const loginStatus = useSelector<any, boolean>((state) => state.login)
+  
   useEffect(() => {
-    if (
-      urlQuery === 'recipes' ||
-      urlQuery === 'products' ||
-      urlQuery === 'favorites' ||
-      urlQuery === 'shopping_list' ||
-      urlQuery === ''
+    if (urlQuery === 'recipes' || urlQuery === 'products' || urlQuery === '') {
+      setIsWrongUrl(false)
+    } else if (
+      (urlQuery === 'favorites' || urlQuery === 'shopping_list') &&
+      loginStatus
     ) {
       setIsWrongUrl(false)
     } else {
@@ -106,6 +106,7 @@ const MainForm: React.FC<MainFormTypes> = ({
           className={styles.clear}
           aria-label="Delete filter button"
           onClick={resetFilter}
+          disabled={isWrongUrl}
           type="reset"
         >
           Delete filter

@@ -1,6 +1,5 @@
 import { recipesActions } from './recipes-slice'
 import { productsActions } from './products-slice'
-import { recipeDetailActions } from './recipeDetail-slice'
 import { json } from 'react-router-dom'
 
 export const fetchProducts = (itemName: string) => {

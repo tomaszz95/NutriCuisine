@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { Link } from 'react-router-dom'
 
@@ -20,6 +20,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
 }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const loginStatus = useSelector<any, boolean>((state) => state.login)
 
   useEffect(() => {
     if (favoriteList === undefined || favoriteList.length < 1) return
@@ -69,6 +70,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
         aria-label="Add / remove recipe from favorites"
         className={styles.button}
         onClick={handleFavorite}
+        disabled={!loginStatus}
       >
         {isFavorite ? (
           <i className="fa-solid fa-star" />

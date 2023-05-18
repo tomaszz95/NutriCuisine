@@ -57,7 +57,8 @@
   background-color: rgb(219, 33, 0);
 }
 
-.button:disabled {
+.button:disabled,
+.clear:disabled {
   background-color: var(--greylish);
 }
 

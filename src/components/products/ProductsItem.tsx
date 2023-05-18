@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { shoppingActions } from '../../store/shopping-slice'
@@ -18,6 +18,7 @@ const ProductItem: React.FC<ProductItemTypes> = ({
 }) => {
   const [isInShoppingList, setIsInShoppingList] = useState(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const loginStatus = useSelector<any, boolean>((state) => state.login)
 
   useEffect(() => {
     if (shoppingList.length < 1) return
@@ -62,6 +63,7 @@ const ProductItem: React.FC<ProductItemTypes> = ({
         aria-label="Add / remove products from shopping list button"
         className={styles.button}
         onClick={handleShoppingList}
+        disabled={!loginStatus}
       >
         {isInShoppingList ? (
           <i className="fa-solid fa-check" />

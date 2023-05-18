@@ -21,11 +21,12 @@
 }
 
 .formInput {
-  padding: 0.8em 3em;
+  padding: 0.8em 1.6em;
   margin-top: 1em;
+  min-width: 300px;
   border-radius: 12px;
   border: 2px solid var(--secondary);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .formButton {
@@ -45,6 +46,13 @@
 .error {
   margin-top: 0.4em;
   font-size: 1.3rem;
+  color: var(--alert);
+  font-weight: bold;
+}
+
+.loginError {
+  margin-top: 1em;
+  font-size: 1.8rem;
   color: var(--alert);
   font-weight: bold;
 }
@@ -78,7 +86,8 @@ input.error {
   }
 
   .formInput {
-    padding: 1em 4em;
+    min-width: 450px;
+    padding: 1em 2em;
     margin-top: 2em;
     font-size: 1.6rem;
   }
@@ -92,6 +101,11 @@ input.error {
   .error {
     margin-top: 0.6em;
     font-size: 1.4rem;
+  }
+
+  .loginError {
+    margin-top: 1.2em;
+    font-size: 2rem;
   }
 
   .redirect {
@@ -114,7 +128,8 @@ input.error {
   }
 
   .formInput {
-    padding: 1em 6em;
+    min-width: 500px;
+    padding: 1.2em 2.4em;
     font-size: 1.8rem;
   }
 
@@ -127,6 +142,11 @@ input.error {
   .error {
     margin-top: 0.8em;
     font-size: 1.6rem;
+  }
+
+  .loginError {
+    margin-top: 1.4em;
+    font-size: 2.2rem;
   }
 
   .redirect {
