@@ -29,4 +29,4 @@ The whole page is responsible, using storage to contain informations - like favo
 - [x] Add firebase to app (authentication, login, logout),
 - [ ] Use firebase database instead of local storage to contain recipes / product names,
 
-#### I encourage you to check the website - uploaded to netlifly [RecipeFinder](https://nutricuisine.netlify.app/).
+#### I encourage you to check the website - uploaded to netlifly [NutriCuisine](https://nutricuisine.netlify.app/).
