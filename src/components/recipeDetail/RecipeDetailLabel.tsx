@@ -6,6 +6,7 @@ const RecipeDetailLabel: React.FC<RecipeDetailLabelProps> = ({
   labelList,
 }) => {
   let labelClass: string
+  
   if (label === 'Health labels:') {
     labelClass = styles.health
   } else if (label === 'Diet labels:') {

@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { useLoaderData } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import { useLoaderData } from 'react-router-dom'
 
-import RecipeItem from './RecipeItem'
 import { recipesActions } from '../../store/recipes-slice'
+import RecipeItem from './RecipeItem'
 import { InitialRecipesStateTypes, RecipeItemTypes } from '../helpers/types'
 import styles from './RecipeList.module.css'
 

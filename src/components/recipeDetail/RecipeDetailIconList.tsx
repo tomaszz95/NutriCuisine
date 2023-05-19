@@ -13,6 +13,7 @@ const RecipeDetailIconList: React.FC<RecipeDetailIconListProps> = ({
   const cuisineFinal = cuisine.charAt(0).toUpperCase() + cuisine.slice(1)
   const mealTypeFinal = mealType.charAt(0).toUpperCase() + mealType.slice(1)
   const totalTimeFinal = totalTime === '0' ? '10' : totalTime
+  
   return (
     <div className={styles.detail}>
       <RecipeDetailIconItem

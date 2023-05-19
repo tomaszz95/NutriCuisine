@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import { Link } from 'react-router-dom'
 
 import useLocalStorage from '../hooks/useLocalStorage'
-import { FavoriteItemTypes } from '../helpers/types'
 import { favoritesActions } from '../../store/favorites-slice'
+import { FavoriteItemTypes } from '../helpers/types'
 import styles from './FavoriteItem.module.css'
-import { Link } from 'react-router-dom'
 
 const FavoriteItem: React.FC<FavoriteItemTypes> = ({
   recipeName,

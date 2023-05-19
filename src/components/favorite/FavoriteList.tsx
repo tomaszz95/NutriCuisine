@@ -4,8 +4,8 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import useLocalStorage from '../hooks/useLocalStorage'
 import { favoritesActions } from '../../store/favorites-slice'
-import { FavoriteItemTypes } from '../helpers/types'
 import FavoriteItem from './FavoriteItem'
+import { FavoriteItemTypes } from '../helpers/types'
 import styles from './FavoriteList.module.css'
 
 const FavoriteList = () => {

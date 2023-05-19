@@ -21,7 +21,6 @@ export async function recipesLoader() {
 export async function productsLoader() {
   try {
     const response = await fetch(PRODUCTSADDRESS)
-
     const resData = await response.json()
     return resData
   } catch {

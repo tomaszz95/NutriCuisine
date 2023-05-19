@@ -20,6 +20,7 @@ const productsSlice = createSlice({
           id: item.food.foodId,
         }
       })
+      
       const uniqueProducts = fetchedData.filter(
         (item: any, index: any, self: any) =>
           index === self.findIndex((i: any) => i.ingredient === item.ingredient)

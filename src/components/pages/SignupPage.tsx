@@ -1,12 +1,9 @@
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { ThunkDispatch } from '@reduxjs/toolkit'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 import auth from '../../firebase'
 import LoginLayout from '../layouts/LoginLayout'
-import { loginActions } from '../../store/login-slice'
 import styles from './SignupPage.module.css'
 
 const SignUpPage = () => {
@@ -17,11 +14,11 @@ const SignUpPage = () => {
   const [passwordError, setPasswordError] = useState<boolean>(false)
   const [password2Error, setPassword2Error] = useState<boolean>(false)
   const [signUpError, setSignUpError] = useState<boolean>(false)
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
+    
     if (emailRef.current === null) return
     if (passwordRef.current === null) return
     if (passwordRef2.current === null) return
@@ -52,7 +49,6 @@ const SignUpPage = () => {
           emailRef.current!.value = ''
           passwordRef.current!.value = ''
           passwordRef2.current!.value = ''
-          dispatch(loginActions.changeLoginState(true))
           setSignUpError(false)
           navigate('/recipes')
         })

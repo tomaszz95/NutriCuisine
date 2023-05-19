@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import useLocalStorage from '../hooks/useLocalStorage'
-import { InitialShoppingTypes } from '../helpers/types'
 import { shoppingActions } from '../../store/shopping-slice'
+import { InitialShoppingTypes } from '../helpers/types'
 import styles from './ShoppingItem.module.css'
 
 const ShoppingItem: React.FC<{ prodName: string; isBought: boolean }> = ({

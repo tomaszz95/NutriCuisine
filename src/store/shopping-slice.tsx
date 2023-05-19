@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-
 import { InitialShoppingTypes } from '../components/helpers/types'
 
 const shoppingSlice = createSlice({
@@ -9,6 +8,7 @@ const shoppingSlice = createSlice({
     addProductsFromStorage(_, action) {
       return action.payload
     },
+
     addProductToList(state, action) {
       const existingItemIndex = state.findIndex(
         (el) => el.productName === action.payload.productName
@@ -18,6 +18,7 @@ const shoppingSlice = createSlice({
         state.push(action.payload)
       }
     },
+
     changeProductCheckStatus(state, action) {
       return state.map((product) => {
         if (product.productName === action.payload.productName) {
@@ -30,6 +31,7 @@ const shoppingSlice = createSlice({
         }
       })
     },
+    
     deleteProduct(state, action) {
       const updatedProducts = state.filter(
         (product) => product.productName !== action.payload

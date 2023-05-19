@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 import useUrlAddress from '../hooks/useUrlAddress'
-import MainForm from '../form/MainForm'
+import { InitialRootLayoutState } from '../helpers/initialStates'
 import Navigation from '../navigation/Navigation'
 import HeaderLayout from './HeaderLayout'
-import { InitialRootLayoutState } from '../helpers/initialStates'
+import MainForm from '../form/MainForm'
 import styles from './RootLayout.module.css'
 
 const RootLayout = () => {

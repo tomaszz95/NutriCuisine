@@ -4,8 +4,8 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import useLocalStorage from '../hooks/useLocalStorage'
 import { shoppingActions } from '../../store/shopping-slice'
-import { InitialShoppingTypes } from '../helpers/types'
 import ShoppingItem from './ShoppingItem'
+import { InitialShoppingTypes } from '../helpers/types'
 import styles from './ShoppingList.module.css'
 
 const ShoppingList = () => {
@@ -20,6 +20,7 @@ const ShoppingList = () => {
 
   useEffect(() => {
     const storageValue = getValue('list')
+    
     if (productsList.length === 0) {
       if (storageValue === undefined) {
         setProductListFixed([])

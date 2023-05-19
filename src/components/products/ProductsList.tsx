@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useLoaderData } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import { useLoaderData } from 'react-router-dom'
 
 import { productsActions } from '../../store/products-slice'
 import ProductItem from './ProductsItem'

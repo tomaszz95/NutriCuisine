@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
+import useFirebaseAuth from '../hooks/useFirebaseAuth'
 import { shoppingActions } from '../../store/shopping-slice'
 import { ProductItemTypes } from '../helpers/types'
 import styles from './ProductsItem.module.css'
@@ -18,7 +19,8 @@ const ProductItem: React.FC<ProductItemTypes> = ({
 }) => {
   const [isInShoppingList, setIsInShoppingList] = useState(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
-  const loginStatus = useSelector<any, boolean>((state) => state.login)
+  const isLogged = useFirebaseAuth()
+  let image
 
   useEffect(() => {
     if (shoppingList.length < 1) return
@@ -40,7 +42,6 @@ const ProductItem: React.FC<ProductItemTypes> = ({
     setIsInShoppingList(() => !isInShoppingList)
   }
 
-  let image
   if (productImage === undefined) {
     image =
       'https://t3.ftcdn.net/jpg/05/38/52/48/360_F_538524834_KTWCegIa69mIWDLVx6Sc6tdkW6beiMBR.jpg'
@@ -63,7 +64,7 @@ const ProductItem: React.FC<ProductItemTypes> = ({
         aria-label="Add / remove products from shopping list button"
         className={styles.button}
         onClick={handleShoppingList}
-        disabled={!loginStatus}
+        disabled={!isLogged}
       >
         {isInShoppingList ? (
           <i className="fa-solid fa-check" />

@@ -4,8 +4,8 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
 import { shoppingActions } from '../../store/shopping-slice'
-import { MainFormTypes } from '../helpers/types'
 import { favoritesInputActions } from '../../store/favoritesInput-slice'
+import { MainFormTypes } from '../helpers/types'
 import styles from './MainForm.module.css'
 
 const MainForm: React.FC<MainFormTypes> = ({

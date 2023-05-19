@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { Link } from 'react-router-dom'
 
+import useFirebaseAuth from '../hooks/useFirebaseAuth'
 import { favoritesActions } from '../../store/favorites-slice'
 import { RecipeItemTypes } from '../helpers/types'
 import styles from './RecipeItem.module.css'
@@ -20,7 +21,8 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
 }) => {
   const [isFavorite, setIsFavorite] = useState(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
-  const loginStatus = useSelector<any, boolean>((state) => state.login)
+  const isLogged = useFirebaseAuth()
+  let image
 
   useEffect(() => {
     if (favoriteList === undefined || favoriteList.length < 1) return
@@ -49,7 +51,6 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
     setIsFavorite(() => !isFavorite)
   }
 
-  let image
   if (recipeImage === undefined) {
     image =
       'https://t3.ftcdn.net/jpg/05/38/52/48/360_F_538524834_KTWCegIa69mIWDLVx6Sc6tdkW6beiMBR.jpg'
@@ -70,7 +71,7 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
         aria-label="Add / remove recipe from favorites"
         className={styles.button}
         onClick={handleFavorite}
-        disabled={!loginStatus}
+        disabled={!isLogged}
       >
         {isFavorite ? (
           <i className="fa-solid fa-star" />

@@ -1,9 +1,10 @@
+import { json } from 'react-router-dom'
 import { recipesActions } from './recipes-slice'
 import { productsActions } from './products-slice'
-import { json } from 'react-router-dom'
 
 export const fetchProducts = (itemName: string) => {
   return async (dispatch: any) => {
+
     const fetchData = async () => {
       const response = await fetch(
         `https://api.edamam.com/api/food-database/v2/parser?app_id=${
@@ -12,7 +13,6 @@ export const fetchProducts = (itemName: string) => {
           import.meta.env.VITE_CALORIESKEY
         }&ingr=${itemName}&nutrition-type=cooking`
       )
-
       const data = await response.json()
       return data
     }
@@ -28,13 +28,13 @@ export const fetchProducts = (itemName: string) => {
 
 export const fetchRecipes = (recipeName: string) => {
   return async (dispatch: any) => {
+
     const fetchData = async () => {
       const response = await fetch(
         `https://api.edamam.com/api/recipes/v2?type=public&q=${recipeName}&app_id=${
           import.meta.env.VITE_RECIPEID
         }&app_key=${import.meta.env.VITE_RECIPEKEY}`
       )
-
       const data = await response.json()
       return data
     }

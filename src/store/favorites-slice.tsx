@@ -8,6 +8,7 @@ const favoritesSlice = createSlice({
     addRecipesFromStorage(_, action) {
       return action.payload
     },
+
     addRecipeToList(state, action) {
       const existingRecipeIndex = state.findIndex(
         (el) => el.recipeName === action.payload.recipeName
@@ -17,6 +18,7 @@ const favoritesSlice = createSlice({
         state.push(action.payload)
       }
     },
+
     changeRecipeCheckStatus(state, action) {
       return state.map((recipe) => {
         if (recipe.recipeName === action.payload.recipeName) {
@@ -31,6 +33,7 @@ const favoritesSlice = createSlice({
         }
       })
     },
+    
     deleteRecipe(state, action) {
       const updatedRecipes = state.filter(
         (product) => product.recipeName !== action.payload

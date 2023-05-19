@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+
 import styles from './BlockedLayout.module.css'
 
 const BlockedLayout = () => {

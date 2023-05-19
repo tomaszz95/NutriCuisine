@@ -1,12 +1,9 @@
 import { useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { ThunkDispatch } from '@reduxjs/toolkit'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
 import auth from '../../firebase'
 import LoginLayout from '../layouts/LoginLayout'
-import { loginActions } from '../../store/login-slice'
 import styles from './LoginPage.module.css'
 
 const LoginPage = () => {
@@ -15,11 +12,11 @@ const LoginPage = () => {
   const [emailError, setEmailError] = useState<boolean>(false)
   const [passwordError, setPasswordError] = useState<boolean>(false)
   const [loginError, setLoginError] = useState<boolean>(false)
-  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
+
     if (emailRef.current === null) return
     if (passwordRef.current === null) return
 
@@ -43,13 +40,13 @@ const LoginPage = () => {
         .then(() => {
           emailRef.current!.value = ''
           passwordRef.current!.value = ''
-          dispatch(loginActions.changeLoginState(true))
           setLoginError(false)
           navigate('/recipes')
         })
         .catch(() => setLoginError(true))
     }
   }
+  
   return (
     <div className={styles.container}>
       <LoginLayout />

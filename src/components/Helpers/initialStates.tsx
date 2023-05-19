@@ -38,7 +38,6 @@ export const InitialDetailRecipeState: RecipeDetailTypes = {
   ingredientLines: [],
   dietLabels: [],
   healthLabels: [],
-  totalNutrients: [],
   totalDaily: [],
   cautions: [],
   cuisine: '',

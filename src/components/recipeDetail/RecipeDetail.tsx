@@ -7,6 +7,7 @@ import styles from './RecipeDetail.module.css'
 
 const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipeData }) => {
   let image
+  
   if (recipeData.image === undefined) {
     image =
       'https://t3.ftcdn.net/jpg/05/38/52/48/360_F_538524834_KTWCegIa69mIWDLVx6Sc6tdkW6beiMBR.jpg'

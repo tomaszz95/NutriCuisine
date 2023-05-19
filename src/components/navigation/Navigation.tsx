@@ -16,9 +16,11 @@ const Navigation = () => {
     if (location.pathname === '/products' && productsList.length >= 1) {
       setCartMove(true)
     }
+
     const timeout = setTimeout(() => {
       setCartMove(false)
     }, 500)
+    
     return () => clearTimeout(timeout)
   }, [productsList])
 

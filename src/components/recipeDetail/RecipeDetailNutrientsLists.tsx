@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { RecipeDetailNutrientsListsTypes } from '../helpers/types'
-import RecipeDetailNutrientsItem from './RecipeDetailNutrientsItem'
 
+import RecipeDetailNutrientsItem from './RecipeDetailNutrientsItem'
+import { RecipeDetailNutrientsListsTypes } from '../helpers/types'
 import styles from './RecipeDetailNutrientsLists.module.css'
 
 const RecipeDetailNutrientsLists: React.FC<RecipeDetailNutrientsListsTypes> = ({
@@ -9,6 +9,7 @@ const RecipeDetailNutrientsLists: React.FC<RecipeDetailNutrientsListsTypes> = ({
   totalDaily,
 }) => {
   const [isTotal, setIsTotal] = useState(true)
+  
   let daily100g: { [key: string]: any } = {}
   Object.entries(totalDaily).forEach(([key, value]: any) => {
     daily100g[key] = {
