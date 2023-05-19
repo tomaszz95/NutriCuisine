@@ -23,6 +23,7 @@ const FavoriteList = () => {
 
   useEffect(() => {
     const storageValue = getValue('favorites')
+    
     if (recipesList.length === 0) {
       if (storageValue === undefined) {
         setRecipeListFixed([])
@@ -41,7 +42,7 @@ const FavoriteList = () => {
       .toLowerCase()
       .includes(favoritesInputValue.toLowerCase())
   })
-  
+
   return (
     <ul className={styles.list}>
       {filteredFavList.map((item) => (

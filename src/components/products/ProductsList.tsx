@@ -3,9 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { useLoaderData } from 'react-router-dom'
 
+import useLocalStorage from '../hooks/useLocalStorage'
+import { shoppingActions } from '../../store/shopping-slice'
 import { productsActions } from '../../store/products-slice'
 import ProductItem from './ProductsItem'
-import { InitialProductStateTypes, InitialShoppingTypes } from '../helpers/types'
+import {
+  InitialProductStateTypes,
+  InitialShoppingTypes,
+} from '../helpers/types'
 import styles from './ProductsList.module.css'
 
 const ProductsList = () => {
@@ -17,11 +22,18 @@ const ProductsList = () => {
   const shoppingList = useSelector<any, InitialShoppingTypes[]>(
     (state) => state.shopping
   )
+  const { getValue } = useLocalStorage()
 
   useEffect(() => {
     dispatch(productsActions.getProductByName(loaderData))
+
+    const storageValue = getValue('list')
+
+    if (storageValue !== undefined) {
+      dispatch(shoppingActions.addProductsFromStorage(storageValue))
+    }
   }, [])
- 
+
   return (
     <ul className={styles.list}>
       {productsList.map((item) => (

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { useLoaderData } from 'react-router-dom'
 
+import useLocalStorage from '../hooks/useLocalStorage'
+import { favoritesActions } from '../../store/favorites-slice'
 import { recipesActions } from '../../store/recipes-slice'
 import RecipeItem from './RecipeItem'
 import { InitialRecipesStateTypes, RecipeItemTypes } from '../helpers/types'
@@ -14,13 +16,19 @@ const RecipeList = () => {
   const recipesList = useSelector<any, InitialRecipesStateTypes>(
     (state) => state.recipes
   )
- 
   const favoriteList = useSelector<any, RecipeItemTypes[]>(
     (state) => state.favorites
   )
+  const { getValue } = useLocalStorage()
 
   useEffect(() => {
     dispatch(recipesActions.getRecipeByName(loaderData))
+
+    const storageValue = getValue('favorites')
+
+    if (storageValue !== undefined) {
+      dispatch(favoritesActions.addRecipesFromStorage(storageValue))
+    }
   }, [])
 
   return (

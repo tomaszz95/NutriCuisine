@@ -26,7 +26,6 @@ const RecipeItem: React.FC<RecipeItemTypes> = ({
 
   useEffect(() => {
     if (favoriteList === undefined || favoriteList.length < 1) return
-
     favoriteList.map((recipe) => {
       if (recipe.recipeName.toLowerCase() === recipeName.toLowerCase()) {
         setIsFavorite(true)

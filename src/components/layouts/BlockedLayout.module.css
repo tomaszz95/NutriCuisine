@@ -38,6 +38,7 @@
   border: 2px solid var(--special);
   border-radius: 12px;
   font-weight: bold;
+  color: var(--secondary);
   transition: background-color 0.3s;
   font-weight: bold;
 }

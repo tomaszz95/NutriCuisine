@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 
+import useFirebaseAuth from '../hooks/useFirebaseAuth'
 import { fetchRecipes, fetchProducts } from '../../store/api-actions'
 import { shoppingActions } from '../../store/shopping-slice'
 import { favoritesInputActions } from '../../store/favoritesInput-slice'
@@ -17,14 +18,14 @@ const MainForm: React.FC<MainFormTypes> = ({
   const [isWrongUrl, setIsWrongUrl] = useState<boolean>(false)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const inputRef = useRef<HTMLInputElement>(null)
-  const loginStatus = useSelector<any, boolean>((state) => state.login)
-  
+  const isLogged = useFirebaseAuth()
+
   useEffect(() => {
     if (urlQuery === 'recipes' || urlQuery === 'products' || urlQuery === '') {
       setIsWrongUrl(false)
     } else if (
       (urlQuery === 'favorites' || urlQuery === 'shopping_list') &&
-      loginStatus
+      isLogged
     ) {
       setIsWrongUrl(false)
     } else {
