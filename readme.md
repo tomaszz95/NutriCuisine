@@ -23,7 +23,7 @@ The whole page is responsible, using storage to contain informations - like favo
 - using [Food API](https://www.edamam.com/),
 - git / github.
 
-## 📫 TODO
+## 👩‍💻 TODO
 
 - [x] Create login/signup pages,
 - [x] Add firebase to app (authentication, login, logout),
