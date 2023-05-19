@@ -15,7 +15,6 @@ const useFirebaseAuth = () => {
       }
     })
   }, [])
-
   return isLogged
 }
 

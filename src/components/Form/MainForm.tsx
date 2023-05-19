@@ -26,12 +26,12 @@ const MainForm: React.FC<MainFormTypes> = ({
     } else if (
       (urlQuery === 'favorites' || urlQuery === 'shopping_list') &&
       isLogged
-    ) {
-      setIsWrongUrl(false)
-    } else {
+      ) {
+        setIsWrongUrl(false)
+      } else {
       setIsWrongUrl(true)
     }
-  }, [urlQuery])
+  }, [urlQuery, isLogged])
 
   const submitInput = (e: React.SyntheticEvent) => {
     e.preventDefault()

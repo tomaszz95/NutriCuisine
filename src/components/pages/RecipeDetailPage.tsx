@@ -8,7 +8,7 @@ import RecipeDetail from '../recipeDetail/RecipeDetail'
 const RecipeDetailPage = () => {
   const [recipeData, setRecipeData] = useState(InitialDetailRecipeState)
   const loaderData: any = useLoaderData()
-
+console.log(loaderData);
   useEffect(() => {
     setRecipeData({
       name: loaderData.recipe.label,
