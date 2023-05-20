@@ -105,7 +105,7 @@ const MainForm: React.FC<MainFormTypes> = ({
       {urlQuery === 'favorites' ? (
         <button
           className={styles.clear}
-          aria-label="Delete filter button"
+          aria-label="Delete filters button"
           onClick={resetFilter}
           disabled={isWrongUrl}
           type="reset"

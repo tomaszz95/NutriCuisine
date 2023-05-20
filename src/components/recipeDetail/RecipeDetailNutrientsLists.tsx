@@ -24,13 +24,13 @@ const RecipeDetailNutrientsLists: React.FC<RecipeDetailNutrientsListsTypes> = ({
       <div className={styles.buttons}>
         <button
           className={`${styles.button} ${isTotal ? styles.activeButton : ''}`}
-          onClick={() => setIsTotal(true)}
+          onClick={() => setIsTotal(true)} aria-label='Click to check nutritional daily values per meal'
         >
           Per meal
         </button>
         <button
           className={`${styles.button} ${!isTotal ? styles.activeButton : ''}`}
-          onClick={() => setIsTotal(false)}
+          onClick={() => setIsTotal(false)} aria-label='Click to check nutritional daily values per 100g'
         >
           Per 100g
         </button>

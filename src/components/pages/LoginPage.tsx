@@ -77,7 +77,7 @@ const LoginPage = () => {
         {loginError && (
           <p className={styles.loginError}>Wrong email or password!</p>
         )}
-        <button type="submit" className={styles.formButton}>
+        <button type="submit" className={styles.formButton} aria-label='Click to log in'>
           Login
         </button>
       </form>

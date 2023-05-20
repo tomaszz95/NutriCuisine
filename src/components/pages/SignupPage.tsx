@@ -96,7 +96,7 @@ const SignUpPage = () => {
         {signUpError && (
           <p className={styles.signupError}>This user already exist!</p>
         )}
-        <button type="submit" className={styles.formButton}>
+        <button type="submit" className={styles.formButton} aria-label='Click to sign up'>
           Register
         </button>
       </form>

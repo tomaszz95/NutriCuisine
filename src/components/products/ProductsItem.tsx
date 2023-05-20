@@ -61,7 +61,7 @@ const ProductItem: React.FC<ProductItemTypes> = ({
   return (
     <li className={styles.card}>
       <button
-        aria-label="Add / remove products from shopping list button"
+        aria-label="Add / remove products from shopping list"
         className={styles.button}
         onClick={handleShoppingList}
         disabled={!isLogged}

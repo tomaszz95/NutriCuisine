@@ -28,7 +28,7 @@ const useUrlAddress = (address: string) => {
     case 'shopping_list':
       textObject = {
         titleText: 'Shopping List',
-        placeholderText: 'Add product to list...',
+        placeholderText: 'Add product to the list...',
         buttonText: 'Add',
       }
       break

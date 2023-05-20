@@ -29,7 +29,7 @@ const HeaderLayout: React.FC<HeaderLayoutTypes> = ({ titleText }) => {
         <button
           type="button"
           className={styles.button}
-          aria-label={`Click to ${isLogged ? 'loginout' : 'login'}`}
+          aria-label={`Click to ${isLogged ? 'log out' : 'log in'}`}
           onClick={handleLoginButton}
         >
           {isLogged ? (

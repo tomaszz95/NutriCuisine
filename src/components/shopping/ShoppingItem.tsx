@@ -52,7 +52,7 @@ const ShoppingItem: React.FC<{ prodName: string; isBought: boolean }> = ({
       <button
         className={styles.button}
         onClick={deleteProductHandler}
-        aria-label="Remove item from shopping list"
+        aria-label="Remove item from the shopping list"
       >
         X
       </button>
